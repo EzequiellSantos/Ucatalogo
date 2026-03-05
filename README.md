@@ -1,4 +1,4 @@
-"# 🛍️ Catálogo Digital Premium - Template SaaS
+# 🛍️ Catálogo Digital Premium - Template SaaS
 
 Template moderno de catálogo digital mobile-first para pequenos negócios, lojas e prestadores de serviços. Design premium minimalista com integração WhatsApp.
 

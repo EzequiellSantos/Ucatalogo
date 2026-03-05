@@ -25,8 +25,11 @@ export const ProductDetail = ({ product, open, onClose, whatsappNumber }) => {
         <Drawer.Overlay className="fixed inset-0 bg-black/40 z-50" />
         <Drawer.Content
           data-testid="product-detail-drawer"
-          className="bg-white rounded-t-[2rem] p-6 h-[85vh] flex flex-col focus:outline-none fixed bottom-0 left-0 right-0 z-50"
+          className="bg-white rounded-t-[2rem] p-6 h-[85vh] flex flex-col focus:outline-none fixed bottom-0 left-0 right-0 z-50 mb-[50px]"
         >
+        <Drawer.Title className="sr-only">
+          {product.name}
+        </Drawer.Title>
           {/* Handle */}
           <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-6" />
           
@@ -62,9 +65,11 @@ export const ProductDetail = ({ product, open, onClose, whatsappNumber }) => {
                   </h2>
                 </div>
 
-                {/* <p className="text-3xl font-medium text-black">
-                  R$ {product.price.toFixed(2).replace('.', ',')}
-                </p> */}
+                {
+                  <p className="text-3xl font-medium text-black">
+                  {/* R$ {product.price.toFixed(2).replace('.', ',')} */}
+                  </p>
+                }
 
                 <p className="text-sm text-gray-600 leading-relaxed">
                   {product.description}

@@ -3,10 +3,22 @@
 
 export const catalogData = {
     GabrielEletromoveis: {
-        companyId: 'GabrielEletromoveis',
+
+        companyId: 'gabrieleletromoveis',
         companyName: 'Gabriel Eletromóveis',
-        logo: 'https://res.cloudinary.com/demo/image/upload/v1/logos/nike.png',
+        logo: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1772741288/logo_GabrielEletromoveis_hvoszf.jpg',
+        coverImage: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734289/1_kaabmw.jpg',
         whatsappNumber: '5588999156930',
+        description: 'Maior loja de móveis e eletrodomésticos de Santana do Acaraú. Oferecemos uma ampla variedade de produtos para mobiliar e equipar sua casa com qualidade e estilo.',
+        email: 'contato@gabrieleletromoveis.com.br',
+        phone: '(88) 99915-6930',
+        address: 'Chora, Satana do Acaraú, Ceará',
+        hours: 'Seg-Sex: 9h-18h | Sáb: 10h-16h',
+        socialMedia: {
+            instagram: 'gabrieleletromoveis.oficial',
+            // facebook: 'GabrielEletromoveis',
+            // twitter: 'gabrieleletromoveis'
+        },
         products: [
             {
                 "id": 1,
@@ -81,52 +93,38 @@ export const catalogData = {
                 "imageAlt": "Imagem Cama unibox casal"
             }
         ],
-        categories: ['Todos', 'Moveis', 'Eletrodomesticos', 'Eletroeletronicos', 'Eletroportateis']
-    },
-    apple: {
-        companyId: 'apple',
-        companyName: 'Apple Premium Store',
-        logo: 'https://res.cloudinary.com/demo/image/upload/v1/logos/apple.png',
-        whatsappNumber: '5511988888888',
-        products: [
+        categories: [
             {
-                id: '5',
-                name: 'Minimalist Wireless Earbuds',
-                category: 'electronics',
-                price: 1899.90,
-                description: 'Fones de ouvido sem fio com design minimalista. Som premium e cancelamento de ruído.',
-                image: 'https://images.unsplash.com/photo-1606741965509-717b9fdd6549?crop=entropy&cs=srgb&fm=jpg&q=85',
-                imageAlt: 'Minimalist Wireless Earbuds'
+                id: 'Todos',
+                name: 'Todos',
+                image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?crop=entropy&cs=srgb&fm=jpg&q=85',
+                count: 8
             },
             {
-                id: '6',
-                name: 'Premium Headphones',
-                category: 'audio',
-                price: 2499.90,
-                description: 'Headphones premium com qualidade de áudio excepcional. Conforto para longas sessões.',
-                image: 'https://images.unsplash.com/photo-1677047642886-a20fa832456e?crop=entropy&cs=srgb&fm=jpg&q=85',
-                imageAlt: 'Premium Headphones'
+                id: 'Moveis',
+                name: 'Moveis',
+                image: 'https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                count: 3
             },
             {
-                id: '7',
-                name: 'Vintage Camera Edition',
-                category: 'photography',
-                price: 3999.90,
-                description: 'Câmera vintage reimaginada com tecnologia moderna. Para os apaixonados por fotografia.',
-                image: 'https://images.unsplash.com/photo-1611595567724-d610a74f4505?crop=entropy&cs=srgb&fm=jpg&q=85',
-                imageAlt: 'Vintage Camera Edition'
+                id: 'Eletrodomesticos',
+                name: 'Eletrodomésticos',
+                image: 'https://images.unsplash.com/photo-1632923565835-6582b54f2105?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                count: 2
             },
             {
-                id: '8',
-                name: 'Ceramic Home Set',
-                category: 'home',
-                price: 799.90,
-                description: 'Set de cerâmica premium para casa. Design minimalista e elegante.',
-                image: 'https://images.unsplash.com/photo-1549675613-2001a9672b74?crop=entropy&cs=srgb&fm=jpg&q=85',
-                imageAlt: 'Ceramic Home Set'
+                id: 'Eletroeletronicos',
+                name: 'Eletroeletrônicos',
+                image: 'https://images.unsplash.com/photo-1717295248494-937c3a5655b1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                count: 1
+            },
+            {
+                id: 'Eletroportateis',
+                name: 'Eletroportáteis',
+                image: 'https://images.unsplash.com/photo-1570222094114-d054a817e56b?q=80&w=905&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                count: 2
             }
-        ],
-        categories: ['Todos', 'electronics', 'audio', 'photography', 'home']
+        ]
     }
 };
 
