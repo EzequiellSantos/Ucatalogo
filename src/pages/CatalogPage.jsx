@@ -101,7 +101,7 @@ export const CatalogPage = () => {
     <CatalogLayout activeTab={activeTab} setActiveTab={setActiveTab}>
       {/* Home View */}
       {activeTab === 'home' && (
-        <HomeView catalogData={catalogData} />
+        <HomeView catalogData={catalogData} setActiveTab={setActiveTab} setSearchQuery={setSearchQuery} />
       )}
 
       {/* Products View */}

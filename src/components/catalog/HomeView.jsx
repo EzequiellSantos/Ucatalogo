@@ -1,6 +1,6 @@
 import { Sparkles, TrendingUp, Heart } from 'lucide-react';
 
-export const HomeView = ({ catalogData }) => {
+export const HomeView = ({ catalogData, setActiveTab, setSearchQuery }) => {
   const stats = [
     { icon: TrendingUp, label: 'Produtos', value: catalogData.products.length },
     { icon: Heart, label: 'Categorias', value: catalogData.categories.length - 1 },
@@ -8,6 +8,13 @@ export const HomeView = ({ catalogData }) => {
   ];
 
   const featuredProducts = catalogData.products.slice(0, 3);
+
+  const SetChoiceProduct = (productText) => {
+
+    setActiveTab('products')
+    setSearchQuery(productText)
+
+  }
 
   return (
     <div className="space-y-6 pb-6">
@@ -52,7 +59,7 @@ export const HomeView = ({ catalogData }) => {
           {featuredProducts.map((product) => (
             <div
               key={product.id}
-              className="flex gap-3 bg-white rounded-2xl border border-gray-100 p-3 hover:shadow-md transition-all"
+              className="flex gap-3 bg-white rounded-2xl cursor-pointer border border-gray-100 p-3 hover:shadow-md transition-all"
               data-testid={`featured-product-${product.id}`}
             >
               <img
@@ -60,7 +67,10 @@ export const HomeView = ({ catalogData }) => {
                 alt={product.imageAlt}
                 className="w-20 h-20 object-cover rounded-xl bg-gray-50"
               />
-              <div className="flex-1 min-w-0">
+              <div
+                className="flex-1 min-w-0"
+                onClick={() => SetChoiceProduct(product.name)}
+              >
                 <h3 className="text-sm font-medium text-gray-900 line-clamp-1">
                   {product.name}
                 </h3>
