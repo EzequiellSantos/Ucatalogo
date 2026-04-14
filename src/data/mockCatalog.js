@@ -6,7 +6,7 @@ export const catalogData = {
 
         companyId: 'gabrieleletromoveis',
         companyName: 'Gabriel Eletromóveis',
-        logo: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1772741288/logo_GabrielEletromoveis_hvoszf.jpg',
+        logo: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_15.28.06_pfiaya.jpg',
         coverImage: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734289/1_kaabmw.jpg',
         whatsappNumber: '5588999156930',
         description: 'Maior loja de móveis e eletrodomésticos de Santana do Acaraú. Oferecemos uma ampla variedade de produtos para mobiliar e equipar sua casa com qualidade e estilo.',
@@ -22,75 +22,39 @@ export const catalogData = {
         products: [
             {
                 "id": 1,
-                "name": "Roupeiro Casal 6 Portas",
-                "category": "Moveis",
-                "price": 0,
-                "description": "Roupeiro Casal 6 Portas Madeira",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734288/2_mdsxlm.jpg",
-                "imageAlt": "Imagem Roupeiro Casal 6 Portas"
-            },
-            {
-                "id": 2,
-                "name": "Roupeiro 4 Portas",
-                "category": "Moveis",
-                "price": 0,
-                "description": "Roupeiro 4 portas madeira",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734288/3_p8dxcq.jpg",
-                "imageAlt": "Imagem Roupeiro 4 Portas"
-            },
-            {
-                "id": 3,
-                "name": "Tanquinho",
-                "category": "Eletrodomesticos",
-                "price": 0,
-                "description": "Tanquinho",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734290/13_gvcbgu.jpg",
-                "imageAlt": "Imagem Tanquinho"
-            },
-            {
-                "id": 4,
-                "name": "Fogão 4 Bocas",
-                "category": "Eletrodomesticos",
-                "price": 0,
-                "description": "Fogão 4 bocas",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734290/14_weage4.jpg",
-                "imageAlt": "Imagem Fogão 4 bocas"
-            },
-            {
-                "id": 5,
-                "name": "Antena Century",
-                "category": "Eletroeletronicos",
-                "price": 0,
-                "description": "Antena Century",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734293/32_uglxhv.jpg",
-                "imageAlt": "Imagem Antena Century"
-            },
-            {
-                "id": 6,
                 "name": "Airfryer Itatiaia",
                 "category": "Eletroportateis",
                 "price": 0,
                 "description": "Airfryer Itatiaia",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734294/34_ro2tyf.jpg",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.49.38_lyi6pz.jpg",
                 "imageAlt": "Imagem Airfryer Itatiaia e Sanduicheira"
             },
             {
-                "id": 7,
-                "name": "Ventilador de Pé",
-                "category": "Eletroportateis",
-                "price": 0,
-                "description": "Ventilador de Pé",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734294/36_ixy5bs.jpg",
-                "imageAlt": "Imagem Ventilador de Pé"
-            },
-            {
-                "id": 8,
-                "name": "Cama Unibox Casal",
+                "id": 2,
+                "name": "Guarda Roupa Capelinha 2 Portas",
                 "category": "Moveis",
                 "price": 0,
-                "description": "Cama Unibox Casal",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734291/20_owoc93.jpg",
-                "imageAlt": "Imagem Cama unibox casal"
+                "description": "Guarda Roupa Capelinha",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.48.48_rfqwgq.jpg",
+                "imageAlt": "Guarda Roupa Capelinha"
+            },
+            {
+                "id": 3,
+                "name": "Guarda Roupa Infantil",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Guarda Roupa Infantil",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.50.23_eumlpc.jpg",
+                "imageAlt": "Guarda Roupa Infantil"
+            },
+            {
+                "id": 4,
+                "name": "Bancos Para Balcão",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Bancos Para Balcão",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.51.05_gddwjl.jpg",
+                "imageAlt": "Bancos Para Balcão"
             }
         ],
         categories: [
@@ -105,19 +69,19 @@ export const catalogData = {
                 name: 'Moveis',
                 image: 'https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 count: 3
-            },
+            }/* ,
             {
                 id: 'Eletrodomesticos',
                 name: 'Eletrodomésticos',
                 image: 'https://images.unsplash.com/photo-1632923565835-6582b54f2105?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 count: 2
-            },
-            {
+            }, */
+            /* {
                 id: 'Eletroeletronicos',
                 name: 'Eletroeletrônicos',
                 image: 'https://images.unsplash.com/photo-1717295248494-937c3a5655b1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 count: 1
-            },
+            }, */,
             {
                 id: 'Eletroportateis',
                 name: 'Eletroportáteis',
