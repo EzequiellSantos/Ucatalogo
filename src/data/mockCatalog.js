@@ -7,6 +7,7 @@ export const catalogData = {
         companyId: 'gabrieleletromoveis',
         companyName: 'Gabriel Eletromóveis',
         logo: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_15.28.06_pfiaya.jpg',
+        logoAlt: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202455/logoGB-png_e5j5ro.png',
         coverImage: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734289/1_kaabmw.jpg',
         whatsappNumber: '5588999156930',
         description: 'Maior loja de móveis e eletrodomésticos de Santana do Acaraú. Oferecemos uma ampla variedade de produtos para mobiliar e equipar sua casa com qualidade e estilo.',

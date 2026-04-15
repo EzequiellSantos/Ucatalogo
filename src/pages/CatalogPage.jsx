@@ -9,6 +9,7 @@ import { CategoriesView } from '../components/catalog/CategoriesView';
 import { ProfileView } from '../components/catalog/ProfileView';
 import { ProductDetail } from '../components/catalog/ProductDetail';
 import { fetchCatalogData } from '../data/mockCatalog';
+import { Printer } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const CatalogPage = () => {
@@ -77,7 +78,6 @@ export const CatalogPage = () => {
   const handleCategorySelect = (categoryId) => {
     setSelectedCategory(categoryId);
     setActiveTab('products');
-    setSearchQuery('');
   };
 
   if (loading) {
@@ -98,7 +98,7 @@ export const CatalogPage = () => {
   const categoryNames = catalogData.categories.map(cat => cat.id);
 
   return (
-    <CatalogLayout activeTab={activeTab} setActiveTab={setActiveTab}>
+    <CatalogLayout activeTab={activeTab} setActiveTab={setActiveTab} catalogData={catalogData}>
       {/* Home View */}
       {activeTab === 'home' && (
         <HomeView catalogData={catalogData} setActiveTab={setActiveTab} setSearchQuery={setSearchQuery} />
@@ -113,6 +113,19 @@ export const CatalogPage = () => {
                 {catalogData.companyName}
               </h1>
             </div>
+          </div>
+
+          <div className="flex justify-between items-center px-4 mb-2">
+            <span className="text-xs text-gray-500 font-medium uppercase tracking-widest">
+              {filteredProducts.length} Produtos
+            </span>
+            <button 
+              onClick={() => window.print()}
+              className="flex items-center gap-2 px-3 py-1.5 bg-slate-900 text-white rounded-lg text-xs font-medium hover:bg-slate-800 transition-colors shadow-sm no-print"
+            >
+              <Printer className="w-3.5 h-3.5" />
+              Imprimir Catálogo
+            </button>
           </div>
           
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
