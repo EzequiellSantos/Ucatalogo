@@ -77,17 +77,17 @@ export const PrintCatalog = ({ catalogData }) => {
           {catalogData.companyName}
         </h1>
 
-        {catalogData.logoAlt && (
-          <div className="w-64 h-64 mb-8 flex items-center justify-center">
+        {catalogData.catalogImage && (
+          <div className="w-100 h-100 mb-8 flex items-center justify-center">
             <img
-              src={catalogData.logoAlt}
+              src={catalogData.catalogImage}
               alt="Logo"
               className="max-w-full max-h-full object-contain"
             />
           </div>
         )}
 
-        <div className="mt-12 text-center">
+        {/* <div className="mt-12 text-center">
           <div className="h-1.5 w-20 bg-slate-900 mx-auto mb-6"></div>
 
           <p className="text-2xl font-light tracking-[0.4em] uppercase text-slate-500">
@@ -97,7 +97,7 @@ export const PrintCatalog = ({ catalogData }) => {
           <p className="text-sm mt-6 text-slate-400">
             {format(new Date(), "MMMM 'de' yyyy", { locale: ptBR })}
           </p>
-        </div>
+        </div> */}
       </div>
 
       {/* CATEGORIAS */}
