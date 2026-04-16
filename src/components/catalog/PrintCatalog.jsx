@@ -126,7 +126,7 @@ export const PrintCatalog = ({ catalogData }) => {
 
                 <div className="products-grid">
                   {productsInCategory.map((product) => (
-                    <div key={product.id} className="product-card-print">
+                    <div key={product.id} className="product-card-print mt-10">
                       <div className="product-image-container">
                         <img
                           src={product.image}
