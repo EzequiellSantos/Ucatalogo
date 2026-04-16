@@ -7,12 +7,27 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery }) => {
     { icon: Sparkles, label: 'Novidades', value: '3+' }
   ];
 
-  const featuredProducts = catalogData.products.slice(0, 3);
+  const featuredProducts = catalogData.products.slice(-3);
 
   const SetChoiceProduct = (productText) => {
 
     setActiveTab('products')
     setSearchQuery(productText)
+
+  }
+
+  const setActiveLabel = (value) => {
+
+    switch (value) {
+      
+      case "Produtos":
+        setActiveTab('products')
+      
+      case "Categorias":
+        setActiveTab("categories")
+      default: return
+
+    }
 
   }
 
@@ -40,6 +55,7 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery }) => {
             <div
               key={index}
               className="bg-gray-50 rounded-2xl p-4 text-center"
+              onClick={() => setActiveLabel(stat.label)}
             >
               <Icon className="w-5 h-5 mx-auto mb-2 text-gray-700" />
               <p className="text-xl font-bold text-gray-900">{stat.value}</p>
@@ -71,15 +87,15 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery }) => {
                 className="flex-1 min-w-0"
                 onClick={() => SetChoiceProduct(product.name)}
               >
-                <h3 className="text-sm font-medium text-gray-900 line-clamp-1">
+                <h3 className="text-sm font-medium text-gray-900 line-clamp-1 mt-3">
                   {product.name}
                 </h3>
-                <p className="text-xs text-gray-500 line-clamp-2 mt-1">
+                <p className="text-xs text-gray-500 line-clamp-2 mt-2">
                   {product.description}
                 </p>
-                <p className="text-base font-medium text-black mt-2">
+                {/* <p className="text-base font-medium text-black mt-2">
                   R$ {product.price.toFixed(2).replace('.', ',')}
-                </p>
+                </p> */}
               </div>
             </div>
           ))}
