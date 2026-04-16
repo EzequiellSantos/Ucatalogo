@@ -7,7 +7,7 @@ export const catalogData = {
         companyId: 'gabrieleletromoveis',
         companyName: 'Gabriel Eletromóveis',
         logo: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_15.28.06_pfiaya.jpg',
-        logoAlt: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202455/logoGB-png_e5j5ro.png',
+        catalogImage: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344891/IMG-20260415-WA0021_u3nyb7.jpg',
         coverImage: 'https://res.cloudinary.com/drjcwf7aq/image/upload/v1772734289/1_kaabmw.jpg',
         whatsappNumber: '5588999156930',
         description: 'Maior loja de móveis e eletrodomésticos de Santana do Acaraú. Oferecemos uma ampla variedade de produtos para mobiliar e equipar sua casa com qualidade e estilo.',
@@ -23,16 +23,16 @@ export const catalogData = {
         products: [
             {
                 "id": 1,
-                "name": "Airfryer Itatiaia",
+                "name": "Fritadeira Airfryer Itatiaia",
                 "category": "Eletroportateis",
                 "price": 0,
                 "description": "Airfryer Itatiaia",
                 "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.49.38_lyi6pz.jpg",
-                "imageAlt": "Imagem Airfryer Itatiaia e Sanduicheira"
+                "imageAlt": "Imagem Airfryer Itatiaia"
             },
             {
                 "id": 2,
-                "name": "Guarda Roupa Capelinha 2 Portas",
+                "name": "Guarda Roupa Capelinha 2 Portas Compacto",
                 "category": "Moveis",
                 "price": 0,
                 "description": "Guarda Roupa Capelinha Compacto 2 Portas",
@@ -45,7 +45,7 @@ export const catalogData = {
                 "category": "Moveis",
                 "price": 0,
                 "description": "Guarda Roupa Infantil",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.50.23_eumlpc.jpg",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0006_o5vq5d.jpg",
                 "imageAlt": "Guarda Roupa Infantil"
             },
             {
@@ -270,7 +270,7 @@ export const catalogData = {
                 "category": "Moveis",
                 "price": 0,
                 "description": "Cama King Majesty Sleep Conforta",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0051_frnnfw.jpg",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0004_ds4c6d.jpg",
                 "imageAlt": "Cama"
             },
             {
@@ -371,38 +371,200 @@ export const catalogData = {
                 "description": "Roupeiro Ana 6 Portas",
                 "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0066_jmn1u2.jpg",
                 "imageAlt": "Roupeiro"
-            }
+            },
+            {
+                "id": 40,
+                "name": "Smart TV SEMP",
+                "category": "Eletroeletronicos",
+                "price": 0,
+                "description": 'Smart TV SEMP (Disponível 43" e 42")',
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344863/IMG-20260415-WA0065_s1i7ej.jpg",
+                "imageAlt": "TV"
+            },
+            {
+                "id": 41,
+                "name": "Cômoda 2 Portas Rustico Prime",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Cômoda 2 Portas Rustico Prime",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344850/IMG-20260415-WA0069_xmgczs.jpg",
+                "imageAlt": "Cômoda"
+            },
+            {
+                "id": 42,
+                "name": "Conjunto Mesa Mármore",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Conjunto Mesa Mármore (Disponível Preta e Branca)",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344837/IMG-20260415-WA0071_ztt5f0.jpg",
+                "imageAlt": "Mesa"
+            },
+            {
+                "id": 43,
+                "name": "Tanquinhos Suggar",
+                "category": "Eletrodomesticos",
+                "price": 0,
+                "description": "Tanquinhos Suggar (Disponível Preto, Cinza e Branco)",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344834/IMG-20260415-WA0067_cjucyx.jpg",
+                "imageAlt": "Tanquinho"
+            },
+            {
+                "id": 44,
+                "name": "Sanduicheira Elétrica Itatiaia",
+                "category": "Eletroportateis",
+                "price": 0,
+                "description": "Sanduicheira Elétrica Itatiaia",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365248/IMG-20260416-WA0001_dlz4wv.jpg",
+                "imageAlt": "Sanduicheira"
+            },
+            {
+                "id": 45,
+                "name": "Guarda Roupa 4 Portas",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Guarda Roupa 4 Portas (Disponível 3 cores)",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344834/IMG-20260415-WA0070_huba1a.jpg",
+                "imageAlt": "Guarda Roupa"
+            },
+            {
+                "id": 46,
+                "name": "Balcão Porta Allure",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Balcão Porta Allure",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344834/IMG-20260415-WA0068_piwieq.jpg",
+                "imageAlt": "Balcão"
+            },
+            {
+                "id": 47,
+                "name": "Roupeiro Premium 6 Portas Essence",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Roupeiro Premium 6 Portas Essence",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344833/IMG-20260415-WA0072_w8ih8w.jpg",
+                "imageAlt": "Roupeiro"
+            },
+            {
+                "id": 48,
+                "name": "Armário de Aço Branco",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Armário de Aço Branco",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344833/IMG-20260415-WA0084_lksazf.jpg",
+                "imageAlt": "Armário de Aço"
+            },
+            {
+                "id": 49,
+                "name": "Cadeira de Plástico Empilhavel",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Cadeira de Plástico Empilhavel (Disponível roxa, verde, preta e vinho)",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344833/IMG-20260415-WA0086_mhs3k4.jpg",
+                "imageAlt": "Cadeira de Plástico Empilhavel"
+            },
+            {
+                "id": 50,
+                "name": "Guarda Roupa Capelinha 2 Portas",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Guarda Roupa Capelinha 2 Portas",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344880/IMG-20260415-WA0047_d0jkcs.jpg",
+                "imageAlt": "Guarda Roupa Capelinha"
+            },
+            {
+                "id": 51,
+                "name": "Rack Multifuncional",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Rack Multifuncional",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0018_mqj6xl.jpg",
+                "imageAlt": "Guarda Roupa Capelinha"
+            },
+            {
+                "id": 52,
+                "name": "Cama Solteiro Netuno Sleep",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Cama Solteiro Netuno Sleep",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0009_gez1og.jpg",
+                "imageAlt": "Cama Solteiro"
+            },
+            {
+                "id": 53,
+                "name": "Antena Parabólica",
+                "category": "Eletroeletronicos",
+                "price": 0,
+                "description": "Antena Parabólica",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0019_jdwjhf.jpg",
+                "imageAlt": "Antena Parabólica"
+            },
+            {
+                "id": 54,
+                "name": "Elegance 3 Portas",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Elegance 3 Portas",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0014_uaxxbv.jpg",
+                "imageAlt": "Elegance 3 Portas"
+            },
+            {
+                "id": 55,
+                "name": "Grade Cama Solteiro Milano Sleep",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Grade Cama Solteiro Milano Sleep",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0008_mxqhn7.jpg",
+                "imageAlt": "Grade Cama Solteiro Milano Sleep"
+            },
+            {
+                "id": 56,
+                "name": "Estante Multifuncional",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Estante Multifuncional",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365248/IMG-20260416-WA0017_lgtatl.jpg",
+                "imageAlt": "Estante Multifuncional"
+            },
+            {
+                "id": 57,
+                "name": "Guarda Roupa 4 Portas",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Guarda Roupa 4 Portas",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365248/IMG-20260415-WA0085_ltcjih.jpg",
+                "imageAlt": "Guarda Roupa"
+            },
         ],
         categories: [
             {
                 id: 'Todos',
                 name: 'Todos',
                 image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?crop=entropy&cs=srgb&fm=jpg&q=85',
-                count: 39
+                count: 57
             },
             {
                 id: 'Moveis',
                 name: 'Moveis',
                 image: 'https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                count: 33
-            } ,
+                count: 47
+            },
             {
                 id: 'Eletrodomesticos',
                 name: 'Eletrodomésticos',
                 image: 'https://images.unsplash.com/photo-1632923565835-6582b54f2105?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                count: 4
-            },/* 
+                count: 5
+            },
             {
                 id: 'Eletroeletronicos',
                 name: 'Eletroeletrônicos',
                 image: 'https://images.unsplash.com/photo-1717295248494-937c3a5655b1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                count: 1
-            }, */,
+                count: 2
+            },
             {
                 id: 'Eletroportateis',
                 name: 'Eletroportáteis',
                 image: 'https://images.unsplash.com/photo-1570222094114-d054a817e56b?q=80&w=905&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                count: 2
+                count: 3
             }
         ]
     }
