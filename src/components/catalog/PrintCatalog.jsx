@@ -135,14 +135,14 @@ export const PrintCatalog = ({ catalogData }) => {
                         />
                       </div>
 
-                      <div className="mt-4 text-center">
-                        <span className="text-[10px] text-slate-400 uppercase font-bold tracking-widest">
-                          Preço
+                      <div className="mt-8 text-center">
+                        <span className="text-[18px] text-slate-900 uppercase font-bold tracking-widest">
+                          {product.name}
                         </span>
 
-                        <p className="text-3xl font-black text-slate-900">
+                        {/* <p className="text-3xl font-black text-slate-900">
                           R$ {product.price.toFixed(2).replace('.', ',')}
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                   ))}
