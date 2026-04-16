@@ -14,7 +14,7 @@ export const catalogData = {
         email: 'contato@gabrieleletromoveis.com.br',
         phone: '(88) 99915-6930',
         address: 'Chora, Satana do Acaraú, Ceará',
-        hours: 'Seg-Sex: 9h-18h | Sáb: 10h-16h',
+        hours: 'Seg-Sex: 8h-17h',
         socialMedia: {
             instagram: 'gabrieleletromoveis.oficial',
             // facebook: 'GabrielEletromoveis',
@@ -239,7 +239,7 @@ export const catalogData = {
             },
             {
                 "id": 25,
-                "name": "lidiquidificador Mondial 550w",
+                "name": "liquidificador Mondial 550w",
                 "category": "Eletroportateis",
                 "price": 0,
                 "description": "Liquidificador Power 550w",
@@ -302,7 +302,7 @@ export const catalogData = {
             },
             {
                 "id": 32,
-                "name": "Ventilado De Pé",
+                "name": "Ventilador De Pé",
                 "category": "Eletrodomesticos",
                 "price": 0,
                 "description": "Ventilador De Pé",
@@ -377,7 +377,7 @@ export const catalogData = {
                 "name": "Smart TV SEMP",
                 "category": "Eletroeletronicos",
                 "price": 0,
-                "description": 'Smart TV SEMP (Disponível 43" e 42")',
+                "description": 'Smart TV SEMP (Disponível 43" e 32")',
                 "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344863/IMG-20260415-WA0065_s1i7ej.jpg",
                 "imageAlt": "TV"
             },
