@@ -229,7 +229,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa Capelinha"
             },
             {
-                "id": 23,
+                "id": 24,
                 "name": "Cama Queen Elegance",
                 "category": "Moveis",
                 "price": 0,
@@ -238,7 +238,7 @@ export const catalogData = {
                 "imageAlt": "Cama"
             },
             {
-                "id": 23,
+                "id": 25,
                 "name": "lidiquidificador Mondial 550w",
                 "category": "Eletroportateis",
                 "price": 0,
@@ -246,27 +246,153 @@ export const catalogData = {
                 "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0048_geqhz7.jpg",
                 "imageAlt": "Liquidificador"
             },
+            {
+                "id": 26,
+                "name": "Penteadeira Bella",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Penteadeira Bella",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0050_rgk2rq.jpg",
+                "imageAlt": "Penteadeira"
+            },
+            {
+                "id": 27,
+                "name": "Cômoda Infantil",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Cômoda Infantil (2 Cores Disponíveis)",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0052_xq9ukx.jpg",
+                "imageAlt": "Cômoda"
+            },
+            {
+                "id": 28,
+                "name": "Cama King Majesty Sleep Conforta",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Cama King Majesty Sleep Conforta",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0051_frnnfw.jpg",
+                "imageAlt": "Cama"
+            },
+            {
+                "id": 29,
+                "name": "Armário Multiuso Premium",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Armário Multiuso Premium",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344874/IMG-20260415-WA0053_p41obh.jpg",
+                "imageAlt": "Armário"
+            },
+            {
+                "id": 30,
+                "name": "Fruteira de Rattan",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Fruteira de Rattan",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344875/IMG-20260415-WA0060_cnnr8j.jpg",
+                "imageAlt": "Fruteira"
+            },
+            {
+                "id": 31,
+                "name": "Conjunto de Sofá Luxor",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Conjunto de Sofá Luxor",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344874/IMG-20260415-WA0057_e9v4kl.jpg",
+                "imageAlt": "Sofá"
+            },
+            {
+                "id": 32,
+                "name": "Ventilado De Pé",
+                "category": "Eletrodomesticos",
+                "price": 0,
+                "description": "Ventilador De Pé",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344873/IMG-20260415-WA0054_ksi8q5.jpg",
+                "imageAlt": "Ventilador"
+            },
+            {
+                "id": 33,
+                "name": "Guarda Roupa de 2 Portas",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Guarda Roupa de 2 Portas",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344873/IMG-20260415-WA0055_tyiwja.jpg",
+                "imageAlt": "Guarda Roupa"
+            },
+            {
+                "id": 34,
+                "name": "Armário Multiuso Elegance Plus",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Armário Multiuso Elegance Plus",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344871/IMG-20260415-WA0058_riqqtq.jpg",
+                "imageAlt": "Armário Multiuso"
+            },
+            {
+                "id": 35,
+                "name": "Cama de Casal Sleep",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Armário Multiuso Elegance Plus",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344870/IMG-20260415-WA0059_uprceg.jpg",
+                "imageAlt": "Cama"
+            },
+            {
+                "id": 36,
+                "name": "Grade de Casal",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Grade de Casal",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0063_cebid9.jpg",
+                "imageAlt": "Grade"
+            },
+            {
+                "id": 37,
+                "name": "Colchão Queen e King",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Colchão Queen e King",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0064_urywkx.jpg",
+                "imageAlt": "Colchão"
+            },
+            {
+                "id": 38,
+                "name": "Roupeiro Ana 6 Portas",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Roupeiro Ana 6 Portas",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0066_jmn1u2.jpg",
+                "imageAlt": "Roupeiro"
+            },
+            {
+                "id": 39,
+                "name": "Roupeiro Ana 6 Portas",
+                "category": "Moveis",
+                "price": 0,
+                "description": "Roupeiro Ana 6 Portas",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0066_jmn1u2.jpg",
+                "imageAlt": "Roupeiro"
+            }
         ],
         categories: [
             {
                 id: 'Todos',
                 name: 'Todos',
                 image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?crop=entropy&cs=srgb&fm=jpg&q=85',
-                count: 8
+                count: 39
             },
             {
                 id: 'Moveis',
                 name: 'Moveis',
                 image: 'https://images.unsplash.com/photo-1599696848652-f0ff23bc911f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                count: 3
-            }/* ,
+                count: 33
+            } ,
             {
                 id: 'Eletrodomesticos',
                 name: 'Eletrodomésticos',
                 image: 'https://images.unsplash.com/photo-1632923565835-6582b54f2105?q=80&w=388&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-                count: 2
-            }, */
-            /* {
+                count: 4
+            },/* 
+            {
                 id: 'Eletroeletronicos',
                 name: 'Eletroeletrônicos',
                 image: 'https://images.unsplash.com/photo-1717295248494-937c3a5655b1?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
