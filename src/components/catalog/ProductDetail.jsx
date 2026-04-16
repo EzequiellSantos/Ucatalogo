@@ -125,9 +125,9 @@ export const ProductDetail = ({ product, open, onClose, whatsappNumber }) => {
                     </h2>
                   </div>
 
-                  <p className="text-3xl font-medium text-black">
+                  {/* <p className="text-3xl font-medium text-black">
                     R$ {product.price.toFixed(2).replace(".", ",")}
-                  </p>
+                  </p> */}
 
                   <p className="text-sm text-gray-600 leading-relaxed">
                     {product.description}
