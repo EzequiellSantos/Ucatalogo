@@ -171,7 +171,7 @@ export const catalogData = {
                 "category": "Moveis",
                 "price": 0,
                 "description": "Painel Para TV (3 cores disponíveis)",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344882/IMG-20260415-WA0040_cr12l9.jpg",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776434752/IMG-20260416-WA0003_vq9lum.jpg",
                 "imageAlt": "Painel"
             },
             {
@@ -405,7 +405,7 @@ export const catalogData = {
                 "category": "Eletrodomesticos",
                 "price": 0,
                 "description": "Tanquinhos Suggar (Disponível Preto, Cinza e Branco)",
-                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344834/IMG-20260415-WA0067_cjucyx.jpg",
+                "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776434751/IMG-20260416-WA0005_zxjqlg.jpg",
                 "imageAlt": "Tanquinho"
             },
             {
