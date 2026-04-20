@@ -12,11 +12,14 @@ import { fetchCatalogData } from '../data/mockCatalog';
 import { Printer } from 'lucide-react';
 import { toast } from 'sonner';
 
+const getProductsStorageKey = (companyId) => `ucatalogo-products:${companyId}`;
+
 export const CatalogPage = () => {
   const { companyId } = useParams();
   const navigate = useNavigate();
-  
+
   const [catalogData, setCatalogData] = useState(null);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todos');
@@ -24,19 +27,24 @@ export const CatalogPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
 
-  // Fetch catalog data
   useEffect(() => {
     const loadCatalog = async () => {
       try {
         setLoading(true);
         const data = await fetchCatalogData(companyId);
+
         if (data) {
-          document.title = data.companyName
+          document.title = data.companyName;
         }
+
+        const savedProducts = window.localStorage.getItem(getProductsStorageKey(companyId));
+        const parsedProducts = savedProducts ? JSON.parse(savedProducts) : data.products;
+
         setCatalogData(data);
+        setProducts(parsedProducts);
       } catch (error) {
         console.error('Error loading catalog:', error);
-        toast.error(`Empresa '${companyId}' não encontrada`);
+        toast.error(`Empresa '${companyId}' nao encontrada`);
         setTimeout(() => navigate('/nike'), 2000);
       } finally {
         setLoading(false);
@@ -48,27 +56,60 @@ export const CatalogPage = () => {
     }
   }, [companyId, navigate]);
 
-  // Filter products based on search and category
   const filteredProducts = useMemo(() => {
     if (!catalogData) return [];
 
-    let products = catalogData.products;
+    let result = products;
 
     if (selectedCategory !== 'Todos') {
-      products = products.filter(p => p.category === selectedCategory);
+      result = result.filter((product) => product.category === selectedCategory);
     }
 
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      products = products.filter(p => 
-        p.name.toLowerCase().includes(query) ||
-        p.description.toLowerCase().includes(query) ||
-        p.category.toLowerCase().includes(query)
+      result = result.filter((product) =>
+        product.name.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query) ||
+        product.category.toLowerCase().includes(query)
       );
     }
 
-    return products;
-  }, [catalogData, selectedCategory, searchQuery]);
+    return result;
+  }, [catalogData, products, searchQuery, selectedCategory]);
+
+  const persistProducts = (nextProducts) => {
+    setProducts(nextProducts);
+    window.localStorage.setItem(getProductsStorageKey(companyId), JSON.stringify(nextProducts));
+  };
+
+  const handleAddProduct = (product) => {
+    const nextId = products.reduce((highestId, item) => Math.max(highestId, Number(item.id) || 0), 0) + 1;
+    const nextProducts = [...products, { id: nextId, price: 0, ...product }];
+    persistProducts(nextProducts);
+    toast.success('Produto adicionado ao catalogo');
+  };
+
+  const handleUpdateProduct = (productId, updates) => {
+    const nextProducts = products.map((product) =>
+      product.id === productId ? { ...product, ...updates } : product
+    );
+
+    persistProducts(nextProducts);
+    setSelectedProduct((current) => (current?.id === productId ? { ...current, ...updates } : current));
+    toast.success('Produto atualizado');
+  };
+
+  const handleDeleteProduct = (productId) => {
+    const nextProducts = products.filter((product) => product.id !== productId);
+    persistProducts(nextProducts);
+
+    if (selectedProduct?.id === productId) {
+      setSelectedProduct(null);
+      setIsDrawerOpen(false);
+    }
+
+    toast.success('Produto removido do catalogo');
+  };
 
   const handleProductClick = (product) => {
     setSelectedProduct(product);
@@ -82,10 +123,10 @@ export const CatalogPage = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
-        <div className="text-center space-y-3">
-          <div className="w-8 h-8 border-2 border-gray-900 border-t-transparent rounded-full animate-spin mx-auto"></div>
-          <p className="text-sm text-gray-600">Carregando catálogo...</p>
+      <div className="flex min-h-screen items-center justify-center bg-white">
+        <div className="space-y-3 text-center">
+          <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-gray-900 border-t-transparent" />
+          <p className="text-sm text-gray-600">Carregando catalogo...</p>
         </div>
       </div>
     );
@@ -95,41 +136,44 @@ export const CatalogPage = () => {
     return null;
   }
 
-  const categoryNames = catalogData.categories.map(cat => cat.id);
+  const categoryNames = catalogData.categories.map((category) => category.id);
+  const printableCatalogData = { ...catalogData, products };
 
   return (
-    <CatalogLayout activeTab={activeTab} setActiveTab={setActiveTab} catalogData={catalogData}>
-      {/* Home View */}
+    <CatalogLayout activeTab={activeTab} setActiveTab={setActiveTab} catalogData={printableCatalogData}>
       {activeTab === 'home' && (
-        <HomeView catalogData={catalogData} setActiveTab={setActiveTab} setSearchQuery={setSearchQuery} />
+        <HomeView
+          catalogData={printableCatalogData}
+          setActiveTab={setActiveTab}
+          setSearchQuery={setSearchQuery}
+        />
       )}
 
-      {/* Products View */}
       {activeTab === 'products' && (
         <>
           <div className="pt-4">
-            <div className="px-4 mb-4">
+            <div className="mb-4 px-4">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900">
                 {catalogData.companyName}
               </h1>
             </div>
           </div>
 
-          <div className="flex justify-between items-center px-4 mb-2">
-            <span className="text-xs text-gray-500 font-medium uppercase tracking-widest">
+          <div className="mb-2 flex items-center justify-between px-4">
+            <span className="text-xs font-medium uppercase tracking-widest text-gray-500">
               {filteredProducts.length} Produtos
             </span>
-            <button 
+            <button
               onClick={() => window.print()}
-              className="flex items-center gap-2 px-3 py-1.5 bg-slate-900 text-white rounded-lg text-xs font-medium hover:bg-slate-800 transition-colors shadow-sm no-print"
+              className="no-print flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors hover:bg-slate-800"
             >
-              <Printer className="w-3.5 h-3.5" />
-              Imprimir Catálogo
+              <Printer className="h-3.5 w-3.5" />
+              Imprimir Catalogo
             </button>
           </div>
-          
+
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-          
+
           <CategoryFilter
             categories={categoryNames}
             selectedCategory={selectedCategory}
@@ -137,8 +181,8 @@ export const CatalogPage = () => {
           />
 
           {filteredProducts.length === 0 ? (
-            <div className="text-center py-20 px-4">
-              <p className="text-gray-400 text-sm">Nenhum produto encontrado</p>
+            <div className="px-4 py-20 text-center">
+              <p className="text-sm text-gray-400">Nenhum produto encontrado</p>
             </div>
           ) : (
             <ProductGrid
@@ -149,7 +193,6 @@ export const CatalogPage = () => {
         </>
       )}
 
-      {/* Categories View */}
       {activeTab === 'categories' && (
         <CategoriesView
           categories={catalogData.categories}
@@ -157,12 +200,17 @@ export const CatalogPage = () => {
         />
       )}
 
-      {/* Profile View */}
       {activeTab === 'profile' && (
-        <ProfileView catalogData={catalogData} />
+        <ProfileView
+          catalogData={catalogData}
+          companyId={companyId}
+          products={products}
+          onAddProduct={handleAddProduct}
+          onUpdateProduct={handleUpdateProduct}
+          onDeleteProduct={handleDeleteProduct}
+        />
       )}
 
-      {/* Product Detail Drawer */}
       <ProductDetail
         product={selectedProduct}
         open={isDrawerOpen}

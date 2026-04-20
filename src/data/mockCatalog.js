@@ -581,5 +581,5 @@ export const fetchCatalogData = async (companyId) => {
         throw new Error(`Company '${companyId}' not found`);
     }
 
-    return data;
+    return JSON.parse(JSON.stringify(data));
 };

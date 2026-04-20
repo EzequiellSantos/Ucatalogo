@@ -50,5 +50,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Template moderno de catálogo digital mobile-first para pequenos negócios, lojas e prestadores de serviços. Design premium minimalista com integração WhatsApp.",
+  "main": "craco.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EzequiellSantos/Ucatalogo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EzequiellSantos/Ucatalogo/issues"
+  },
+  "homepage": "https://github.com/EzequiellSantos/Ucatalogo#readme"
 }
