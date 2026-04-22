@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import { ImagePlus, Link, LoaderCircle, Pencil, Plus, Save, Trash2, Upload, X } from 'lucide-react';
 import { toast } from 'sonner';
@@ -19,6 +19,18 @@ const createEmptyForm = (defaultCategory) => ({
 const isValidImageFile = (file) => file && file.type.startsWith('image/');
 
 const canUploadToCloudinary = Boolean(CLOUDINARY_CLOUD_NAME && CLOUDINARY_UPLOAD_PRESET);
+
+const getImageNameFromPath = (value) => {
+  if (!value) {
+    return '';
+  }
+
+  const lastSegment = value.split('/').pop()?.split('?')[0] ?? '';
+  return decodeURIComponent(lastSegment).replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').trim();
+};
+
+const getDefaultImageAlt = ({ imageAlt, image, name }) =>
+  imageAlt?.trim() || getImageNameFromPath(image) || name.trim();
 
 const uploadImageToCloudinary = async (file) => {
   const formData = new FormData();
@@ -52,17 +64,39 @@ export const ProductAdminPanel = ({
     () => categories.filter((category) => category !== 'Todos'),
     [categories]
   );
+  const formCardRef = useRef(null);
   const fileInputRef = useRef(null);
+  const nameInputRef = useRef(null);
   const [editingId, setEditingId] = useState(null);
   const [imageMode, setImageMode] = useState('url');
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const [formData, setFormData] = useState(createEmptyForm(availableCategories[0]));
+
+  useEffect(() => {
+    if (!editingId) {
+      return;
+    }
+
+    formCardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+    const focusTimeout = window.setTimeout(() => {
+      nameInputRef.current?.focus();
+    }, 250);
+
+    return () => {
+      window.clearTimeout(focusTimeout);
+    };
+  }, [editingId]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((current) => ({
       ...current,
       [name]: value,
+      imageAlt:
+        name === 'image'
+          ? current.imageAlt || getImageNameFromPath(value) || current.name
+          : current.imageAlt,
       publicId: name === 'image' ? '' : current.publicId
     }));
   };
@@ -116,7 +150,7 @@ export const ProductAdminPanel = ({
         ...current,
         image: uploadedImage.image,
         publicId: uploadedImage.publicId,
-        imageAlt: current.imageAlt || current.name || file.name.replace(/\.[^.]+$/, '')
+        imageAlt: current.imageAlt || file.name.replace(/\.[^.]+$/, '') || current.name
       }));
 
       setImageMode('url');
@@ -150,7 +184,7 @@ export const ProductAdminPanel = ({
       category: formData.category.trim(),
       description: formData.description.trim(),
       image: formData.image.trim(),
-      imageAlt: formData.imageAlt.trim() || formData.name.trim(),
+      imageAlt: getDefaultImageAlt(formData),
       public_id: formData.publicId.trim()
     };
 
@@ -177,7 +211,7 @@ export const ProductAdminPanel = ({
 
   return (
     <div className="space-y-6 px-4">
-      <div className="rounded-3xl border border-emerald-100 bg-white p-5 shadow-sm">
+      <div ref={formCardRef} className="rounded-3xl border border-emerald-100 bg-white p-5 shadow-sm">
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>
             <h2 className="text-lg font-semibold text-gray-900">
@@ -204,6 +238,7 @@ export const ProductAdminPanel = ({
           <div className="grid gap-3 md:grid-cols-[1.1fr_0.9fr]">
             <div className="space-y-3">
               <input
+                ref={nameInputRef}
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
@@ -230,14 +265,6 @@ export const ProductAdminPanel = ({
                 onChange={handleChange}
                 placeholder="Descricao do produto"
                 rows={4}
-                className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-emerald-500"
-              />
-
-              <input
-                name="imageAlt"
-                value={formData.imageAlt}
-                onChange={handleChange}
-                placeholder="Texto alternativo da imagem"
                 className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-emerald-500"
               />
             </div>
@@ -322,7 +349,7 @@ export const ProductAdminPanel = ({
               <div className="overflow-hidden rounded-2xl bg-white shadow-sm">
                 <img
                   src={previewImage}
-                  alt={formData.imageAlt || formData.name || 'Pre-visualizacao'}
+                  alt={getDefaultImageAlt(formData) || 'Pre-visualizacao'}
                   className="h-48 w-full object-cover"
                 />
               </div>
@@ -357,7 +384,7 @@ export const ProductAdminPanel = ({
           >
             <img
               src={product.image}
-              alt={product.imageAlt}
+              alt={product.imageAlt || product.name}
               className="h-16 w-16 rounded-xl object-cover"
             />
 
