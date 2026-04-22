@@ -74,6 +74,7 @@ export const ProductAdminPanel = ({
     setEditingId(product.id);
     setImageMode('url');
     setFormData({
+      legacyId: product.legacyId,
       name: product.name,
       category: product.category,
       description: product.description,
@@ -95,7 +96,7 @@ export const ProductAdminPanel = ({
     }
 
     if (!canUploadToCloudinary) {
-      toast.error('Configure Cloudinary no .env para habilitar o upload automatico');
+      toast.error('Upload automatico não habilitado');
       return;
     }
 
@@ -110,10 +111,10 @@ export const ProductAdminPanel = ({
       }));
 
       setImageMode('url');
-      toast.success('Imagem enviada para a Cloudinary e URL preenchida automaticamente');
+      toast.success('Imagem enviada e URL preenchida automaticamente');
     } catch (error) {
-      console.error('Erro ao enviar imagem para a Cloudinary:', error);
-      toast.error('Nao foi possivel enviar a imagem para a Cloudinary');
+      console.error('Erro ao enviar imagem para a nuvem:', error);
+      toast.error('Nao foi possivel enviar a imagem para a nuvem');
     } finally {
       setIsUploadingImage(false);
 
@@ -136,6 +137,7 @@ export const ProductAdminPanel = ({
 
     const payload = {
       ...formData,
+      legacyId: formData.legacyId || products.length + 1,
       name: formData.name.trim(),
       category: formData.category.trim(),
       description: formData.description.trim(),
