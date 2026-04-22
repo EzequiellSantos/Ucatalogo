@@ -291,7 +291,7 @@ export const ProductAdminPanel = ({
 
               {!canUploadToCloudinary && imageMode === 'upload' ? (
                 <div className="mb-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                  Defina `REACT_APP_CLOUDINARY_CLOUD_NAME` e `REACT_APP_CLOUDINARY_UPLOAD_PRESET` para habilitar o upload.
+                 Ambiente de Upload de Fotos não Habilitado.
                 </div>
               ) : null}
 
@@ -303,7 +303,7 @@ export const ProductAdminPanel = ({
                   name="image"
                   value={formData.image}
                   onChange={handleChange}
-                  placeholder="A URL da Cloudinary aparece aqui depois do upload"
+                  placeholder="A URL aparece aqui depois do upload"
                   className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-emerald-500"
                 />
               </div>
