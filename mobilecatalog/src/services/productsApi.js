@@ -18,7 +18,8 @@ const normalizeProduct = (product) => ({
   price: Number(product.price || 0),
   description: product.description,
   image: product.image,
-  imageAlt: product.imageAlt || product.name
+  imageAlt: product.imageAlt || product.name,
+  publicId: product.public_id ?? product.publicId ?? null
 });
 
 export const fetchProducts = async () => {

@@ -1,0 +1,515 @@
+[
+    {
+        "legacyId": 1,
+        "name": "Fritadeira Airfryer Itatiaia",
+        "category": "Eletroportateis",
+        "price": 0,
+        "description": "Airfryer Itatiaia",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.49.38_lyi6pz.jpg",
+        "imageAlt": "Imagem Airfryer Itatiaia"
+    },
+    {
+        "legacyId": 2,
+        "name": "Guarda Roupa Capelinha 2 Portas Compacto",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa Capelinha Compacto 2 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344880/IMG-20260415-WA0047_d0jkcs.jpg",
+        "imageAlt": "Guarda Roupa Capelinha"
+    },
+    {
+        "legacyId": 3,
+        "name": "Guarda Roupa Infantil",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa Infantil",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0006_o5vq5d.jpg",
+        "imageAlt": "Guarda Roupa Infantil"
+    },
+    {
+        "legacyId": 4,
+        "name": "Bancos Para Balcão",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Bancos Para Balcão",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776202236/WhatsApp_Image_2026-04-13_at_13.51.05_gddwjl.jpg",
+        "imageAlt": "Bancos Para Balcão"
+    },
+    {
+        "legacyId": 5,
+        "name": "Balcão Multiuso Prático",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Balcão Multiuso",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344889/IMG-20260415-WA0023_jghki4.jpg",
+        "imageAlt": "Balcão Multiuso"
+    },
+    {
+        "legacyId": 6,
+        "name": "Cozinha Compacta Elegance Plus",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cozinha Compacta",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344888/IMG-20260415-WA0030_knxh0i.jpg",
+        "imageAlt": "Cozinha Compacta"
+    },
+    {
+        "legacyId": 7,
+        "name": "Conjunto de Mesa",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Conjunto de Mesa com 8 cadeiras",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344888/IMG-20260415-WA0031_wqmz50.jpg",
+        "imageAlt": "Conjunto de Mesa"
+    },
+    {
+        "legacyId": 8,
+        "name": "Armarios de 6 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Armário de 6 Portas (3 cores disponíveis)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344887/IMG-20260415-WA0032_axboeb.jpg",
+        "imageAlt": "Armário"
+    },
+    {
+        "legacyId": 9,
+        "name": "Cama Unibox Casal",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cama Unibox Casal",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344886/IMG-20260415-WA0033_wnej0v.jpg",
+        "imageAlt": "Cama casal"
+    },
+    {
+        "legacyId": 10,
+        "name": "Cabeceira Alcolchoada",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cabeceira Alcochoada",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344886/IMG-20260415-WA0034_daj7gc.jpg",
+        "imageAlt": "Cabeceira"
+    },
+    {
+        "legacyId": 11,
+        "name": "Armário Newton 8 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Armário Newton 8 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344885/IMG-20260415-WA0035_afvceu.jpg",
+        "imageAlt": "Armário"
+    },
+    {
+        "legacyId": 12,
+        "name": "Conjunto Harmony",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Conjunto Poltronas Harmony",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344885/IMG-20260415-WA0036_ud0uzv.jpg",
+        "imageAlt": "Poltrona"
+    },
+    {
+        "legacyId": 13,
+        "name": "Guarda Roupa 6 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa 6 portas (4 Cores Disponíveis)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344884/IMG-20260415-WA0037_rrq5xz.jpg",
+        "imageAlt": "Guarda Roupa"
+    },
+    {
+        "legacyId": 14,
+        "name": "Cadeira de Balanço",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cadeira de Balanço",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344884/IMG-20260415-WA0038_tzrhwb.jpg",
+        "imageAlt": "Cadeira de Balanço"
+    },
+    {
+        "legacyId": 15,
+        "name": "Fogão Itatiaia 5 Bocas",
+        "category": "Eletrodomesticos",
+        "price": 0,
+        "description": "Fogão Itatiaia",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344883/IMG-20260415-WA0039_y5cdr8.jpg",
+        "imageAlt": "Fogão"
+    },
+    {
+        "legacyId": 16,
+        "name": "Fogão Itatiaia 4 Bocas",
+        "category": "Eletrodomesticos",
+        "price": 0,
+        "description": "Fogão Itatiaia (2 Cores Disponiveis)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344882/IMG-20260415-WA0043_gklc8p.jpg",
+        "imageAlt": "Fogão"
+    },
+    {
+        "legacyId": 17,
+        "name": "Painel Para TV",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Painel Para TV (3 cores disponíveis)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776434752/IMG-20260416-WA0003_vq9lum.jpg",
+        "imageAlt": "Painel"
+    },
+    {
+        "legacyId": 18,
+        "name": "Multiuso",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Multiuso ",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344884/IMG-20260415-WA0037_rrq5xz.jpg",
+        "imageAlt": "Multiuso"
+    },
+    {
+        "legacyId": 19,
+        "name": "Fogão Itatiaia 6 Bocas",
+        "category": "Eletrodomesticos",
+        "price": 0,
+        "description": "Fogão Itatiaia 6 bocas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344881/IMG-20260415-WA0045_agcdko.jpg",
+        "imageAlt": "Fogão"
+    },
+    {
+        "legacyId": 20,
+        "name": "Colchão Espuma Casal D-20",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Colchão Espuma Casal D-20",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344880/IMG-20260415-WA0049_rzdqmj.jpg",
+        "imageAlt": "Multiuso"
+    },
+    {
+        "legacyId": 21,
+        "name": "Colchão Espuma Solteiro D-20",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Colchão Espuma Solteiro D-20",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344880/IMG-20260415-WA0049_rzdqmj.jpg",
+        "imageAlt": "Colchão Espuma"
+    },
+    {
+        "legacyId": 22,
+        "name": "Rack com Painel",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Rack com Painel Moderno",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344879/IMG-20260415-WA0044_cetyjd.jpg",
+        "imageAlt": "Rack com Painel"
+    },
+    {
+        "legacyId": 23,
+        "name": "Guarda Roupa Capelinha 4 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa Capelinha 4 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344879/IMG-20260415-WA0041_ftcuit.jpg",
+        "imageAlt": "Guarda Roupa Capelinha"
+    },
+    {
+        "legacyId": 24,
+        "name": "Cama Queen Elegance",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cama Queen Elegance",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344877/IMG-20260415-WA0046_ebivhl.jpg",
+        "imageAlt": "Cama"
+    },
+    {
+        "legacyId": 25,
+        "name": "liquidificador Mondial 550w",
+        "category": "Eletroportateis",
+        "price": 0,
+        "description": "Liquidificador Power 550w",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0048_geqhz7.jpg",
+        "imageAlt": "Liquidificador"
+    },
+    {
+        "legacyId": 26,
+        "name": "Penteadeira Bella",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Penteadeira Bella",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0050_rgk2rq.jpg",
+        "imageAlt": "Penteadeira"
+    },
+    {
+        "legacyId": 27,
+        "name": "Cômoda Infantil",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cômoda Infantil (2 Cores Disponíveis)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344876/IMG-20260415-WA0052_xq9ukx.jpg",
+        "imageAlt": "Cômoda"
+    },
+    {
+        "legacyId": 28,
+        "name": "Cama King Majesty Sleep Conforta",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cama King Majesty Sleep Conforta",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0004_ds4c6d.jpg",
+        "imageAlt": "Cama"
+    },
+    {
+        "legacyId": 29,
+        "name": "Armário Multiuso Premium",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Armário Multiuso Premium",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344874/IMG-20260415-WA0053_p41obh.jpg",
+        "imageAlt": "Armário"
+    },
+    {
+        "legacyId": 30,
+        "name": "Fruteira de Rattan",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Fruteira de Rattan",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344875/IMG-20260415-WA0060_cnnr8j.jpg",
+        "imageAlt": "Fruteira"
+    },
+    {
+        "legacyId": 31,
+        "name": "Conjunto de Sofá Luxor",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Conjunto de Sofá Luxor",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344874/IMG-20260415-WA0057_e9v4kl.jpg",
+        "imageAlt": "Sofá"
+    },
+    {
+        "legacyId": 32,
+        "name": "Ventilador De Pé",
+        "category": "Eletrodomesticos",
+        "price": 0,
+        "description": "Ventilador De Pé",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344873/IMG-20260415-WA0054_ksi8q5.jpg",
+        "imageAlt": "Ventilador"
+    },
+    {
+        "legacyId": 33,
+        "name": "Guarda Roupa de 2 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa de 2 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344873/IMG-20260415-WA0055_tyiwja.jpg",
+        "imageAlt": "Guarda Roupa"
+    },
+    {
+        "legacyId": 34,
+        "name": "Armário Multiuso Elegance Plus",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Armário Multiuso Elegance Plus",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344871/IMG-20260415-WA0058_riqqtq.jpg",
+        "imageAlt": "Armário Multiuso"
+    },
+    {
+        "legacyId": 35,
+        "name": "Cama de Casal Sleep",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Armário Multiuso Elegance Plus",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344870/IMG-20260415-WA0059_uprceg.jpg",
+        "imageAlt": "Cama"
+    },
+    {
+        "legacyId": 36,
+        "name": "Grade de Casal",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Grade de Casal",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0063_cebid9.jpg",
+        "imageAlt": "Grade"
+    },
+    {
+        "legacyId": 37,
+        "name": "Colchão Queen e King",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Colchão Queen e King",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0064_urywkx.jpg",
+        "imageAlt": "Colchão"
+    },
+    {
+        "legacyId": 38,
+        "name": "Roupeiro Ana 6 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Roupeiro Ana 6 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0066_jmn1u2.jpg",
+        "imageAlt": "Roupeiro"
+    },
+    {
+        "legacyId": 39,
+        "name": "Roupeiro Ana 6 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Roupeiro Ana 6 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344869/IMG-20260415-WA0066_jmn1u2.jpg",
+        "imageAlt": "Roupeiro"
+    },
+    {
+        "legacyId": 40,
+        "name": "Smart TV SEMP",
+        "category": "Eletroeletronicos",
+        "price": 0,
+        "description": "Smart TV SEMP (Disponível 43' e 32')",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344863/IMG-20260415-WA0065_s1i7ej.jpg",
+        "imageAlt": "TV"
+    },
+    {
+        "legacyId": 41,
+        "name": "Cômoda 2 Portas Rustico Prime",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cômoda 2 Portas Rustico Prime",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344850/IMG-20260415-WA0069_xmgczs.jpg",
+        "imageAlt": "Cômoda"
+    },
+    {
+        "legacyId": 42,
+        "name": "Conjunto Mesa Mármore",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Conjunto Mesa Mármore (Disponível Preta e Branca)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344837/IMG-20260415-WA0071_ztt5f0.jpg",
+        "imageAlt": "Mesa"
+    },
+    {
+        "legacyId": 43,
+        "name": "Tanquinhos Suggar",
+        "category": "Eletrodomesticos",
+        "price": 0,
+        "description": "Tanquinhos Suggar (Disponível Preto, Cinza e Branco)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776434751/IMG-20260416-WA0005_zxjqlg.jpg",
+        "imageAlt": "Tanquinho"
+    },
+    {
+        "legacyId": 44,
+        "name": "Sanduicheira Elétrica Itatiaia",
+        "category": "Eletroportateis",
+        "price": 0,
+        "description": "Sanduicheira Elétrica Itatiaia",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365248/IMG-20260416-WA0001_dlz4wv.jpg",
+        "imageAlt": "Sanduicheira"
+    },
+    {
+        "legacyId": 45,
+        "name": "Guarda Roupa 4 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa 4 Portas (Disponível 3 cores)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344834/IMG-20260415-WA0070_huba1a.jpg",
+        "imageAlt": "Guarda Roupa"
+    },
+    {
+        "legacyId": 46,
+        "name": "Balcão Porta Allure",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Balcão Porta Allure",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344834/IMG-20260415-WA0068_piwieq.jpg",
+        "imageAlt": "Balcão"
+    },
+    {
+        "legacyId": 47,
+        "name": "Roupeiro Premium 6 Portas Essence",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Roupeiro Premium 6 Portas Essence",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344833/IMG-20260415-WA0072_w8ih8w.jpg",
+        "imageAlt": "Roupeiro"
+    },
+    {
+        "legacyId": 48,
+        "name": "Armário de Aço Branco",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Armário de Aço Branco",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344833/IMG-20260415-WA0084_lksazf.jpg",
+        "imageAlt": "Armário de Aço"
+    },
+    {
+        "legacyId": 49,
+        "name": "Cadeira de Plástico Empilhavel",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cadeira de Plástico Empilhavel (Disponível roxa, verde, preta e vinho)",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344833/IMG-20260415-WA0086_mhs3k4.jpg",
+        "imageAlt": "Cadeira de Plástico Empilhavel"
+    },
+    {
+        "legacyId": 50,
+        "name": "Guarda Roupa Capelinha 2 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa Capelinha 2 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776344880/IMG-20260415-WA0047_d0jkcs.jpg",
+        "imageAlt": "Guarda Roupa Capelinha"
+    },
+    {
+        "legacyId": 51,
+        "name": "Rack Multifuncional",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Rack Multifuncional",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0018_mqj6xl.jpg",
+        "imageAlt": "Guarda Roupa Capelinha"
+    },
+    {
+        "legacyId": 52,
+        "name": "Cama Solteiro Netuno Sleep",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Cama Solteiro Netuno Sleep",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0009_gez1og.jpg",
+        "imageAlt": "Cama Solteiro"
+    },
+    {
+        "legacyId": 53,
+        "name": "Antena Parabólica",
+        "category": "Eletroeletronicos",
+        "price": 0,
+        "description": "Antena Parabólica",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0019_jdwjhf.jpg",
+        "imageAlt": "Antena Parabólica"
+    },
+    {
+        "legacyId": 54,
+        "name": "Elegance 3 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Elegance 3 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0014_uaxxbv.jpg",
+        "imageAlt": "Elegance 3 Portas"
+    },
+    {
+        "legacyId": 55,
+        "name": "Grade Cama Solteiro Milano Sleep",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Grade Cama Solteiro Milano Sleep",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365249/IMG-20260416-WA0008_mxqhn7.jpg",
+        "imageAlt": "Grade Cama Solteiro Milano Sleep"
+    },
+    {
+        "legacyId": 56,
+        "name": "Estante Multifuncional",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Estante Multifuncional",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365248/IMG-20260416-WA0017_lgtatl.jpg",
+        "imageAlt": "Estante Multifuncional"
+    },
+    {
+        "legacyId": 57,
+        "name": "Guarda Roupa 4 Portas",
+        "category": "Moveis",
+        "price": 0,
+        "description": "Guarda Roupa 4 Portas",
+        "image": "https://res.cloudinary.com/drjcwf7aq/image/upload/v1776365248/IMG-20260415-WA0085_ltcjih.jpg",
+        "imageAlt": "Guarda Roupa"
+    }
+]
