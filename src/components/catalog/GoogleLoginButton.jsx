@@ -102,7 +102,7 @@ export const GoogleLoginButton = ({ onSuccess }) => {
   if (status === 'missing-client-id') {
     return (
       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
-        Defina `REACT_APP_GOOGLE_CLIENT_ID` no ambiente para habilitar o login com Google sem backend.
+        Ambiente de Login com Google não habilitado.
       </div>
     );
   }
