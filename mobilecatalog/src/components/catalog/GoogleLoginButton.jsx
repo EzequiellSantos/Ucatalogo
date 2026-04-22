@@ -1,18 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
+import { loginWithGoogle } from '../../services/authApi';
 
 const GOOGLE_SCRIPT_ID = 'google-identity-services';
-
-const parseJwt = (token) => {
-  try {
-    const payload = token.split('.')[1];
-    const normalized = payload.replace(/-/g, '+').replace(/_/g, '/');
-    const decoded = window.atob(normalized);
-    return JSON.parse(decoded);
-  } catch (error) {
-    console.error('Erro ao decodificar o token do Google:', error);
-    return null;
-  }
-};
 
 const loadGoogleScript = () =>
   new Promise((resolve, reject) => {
@@ -42,6 +31,7 @@ const loadGoogleScript = () =>
 export const GoogleLoginButton = ({ onSuccess }) => {
   const buttonRef = useRef(null);
   const [status, setStatus] = useState('idle');
+  const [loginErrorMessage, setLoginErrorMessage] = useState('');
 
   useEffect(() => {
     const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
@@ -61,16 +51,19 @@ export const GoogleLoginButton = ({ onSuccess }) => {
 
         window.google.accounts.id.initialize({
           client_id: clientId,
-          callback: (response) => {
-            const profile = parseJwt(response.credential);
-
-            if (profile) {
-              onSuccess({
-                email: profile.email,
-                name: profile.name,
-                picture: profile.picture,
-                sub: profile.sub
-              });
+          callback: async (response) => {
+            try {
+              setStatus('loading');
+              setLoginErrorMessage('');
+              const user = await loginWithGoogle(response.credential);
+              onSuccess(user);
+              setStatus('ready');
+            } catch (error) {
+              console.error('Erro ao validar login com o backend:', error);
+              setLoginErrorMessage(
+                error.response?.data?.message || 'Login negado. Verifique se este e-mail esta liberado no backend e tente novamente.'
+              );
+              setStatus('login-error');
             }
           }
         });
@@ -102,7 +95,7 @@ export const GoogleLoginButton = ({ onSuccess }) => {
   if (status === 'missing-client-id') {
     return (
       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
-        Ambiente de Login com Google não habilitado.
+        Defina `REACT_APP_GOOGLE_CLIENT_ID` no ambiente para habilitar o login com Google.
       </div>
     );
   }
@@ -115,9 +108,25 @@ export const GoogleLoginButton = ({ onSuccess }) => {
     );
   }
 
+  if (status === 'login-error') {
+    return (
+      <div className="space-y-3">
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {loginErrorMessage || 'Login negado. Verifique se este e-mail esta liberado no backend e tente novamente.'}
+        </div>
+        <div className="flex justify-center">
+          <div ref={buttonRef} className="min-h-11" />
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex justify-center">
-      <div ref={buttonRef} className="min-h-11" />
+      <div
+        ref={buttonRef}
+        className={`min-h-11 ${status === 'loading' ? 'pointer-events-none opacity-60' : ''}`}
+      />
     </div>
   );
 };

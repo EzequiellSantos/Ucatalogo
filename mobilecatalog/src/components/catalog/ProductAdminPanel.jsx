@@ -12,7 +12,8 @@ const createEmptyForm = (defaultCategory) => ({
   category: defaultCategory ?? '',
   description: '',
   image: '',
-  imageAlt: ''
+  imageAlt: '',
+  publicId: ''
 });
 
 const isValidImageFile = (file) => file && file.type.startsWith('image/');
@@ -33,7 +34,10 @@ const uploadImageToCloudinary = async (file) => {
     formData
   );
 
-  return response.data.secure_url;
+  return {
+    image: response.data.secure_url,
+    publicId: response.data.public_id || ''
+  };
 };
 
 export const ProductAdminPanel = ({
@@ -56,7 +60,11 @@ export const ProductAdminPanel = ({
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((current) => ({ ...current, [name]: value }));
+    setFormData((current) => ({
+      ...current,
+      [name]: value,
+      publicId: name === 'image' ? '' : current.publicId
+    }));
   };
 
   const resetForm = () => {
@@ -74,12 +82,12 @@ export const ProductAdminPanel = ({
     setEditingId(product.id);
     setImageMode('url');
     setFormData({
-      legacyId: product.legacyId,
       name: product.name,
       category: product.category,
       description: product.description,
       image: product.image,
-      imageAlt: product.imageAlt
+      imageAlt: product.imageAlt,
+      publicId: product.publicId || ''
     });
 
     if (fileInputRef.current) {
@@ -96,25 +104,26 @@ export const ProductAdminPanel = ({
     }
 
     if (!canUploadToCloudinary) {
-      toast.error('Upload automatico não habilitado');
+      toast.error('Configure Cloudinary no .env para habilitar o upload automatico');
       return;
     }
 
     try {
       setIsUploadingImage(true);
-      const uploadedUrl = await uploadImageToCloudinary(file);
+      const uploadedImage = await uploadImageToCloudinary(file);
 
       setFormData((current) => ({
         ...current,
-        image: uploadedUrl,
+        image: uploadedImage.image,
+        publicId: uploadedImage.publicId,
         imageAlt: current.imageAlt || current.name || file.name.replace(/\.[^.]+$/, '')
       }));
 
       setImageMode('url');
-      toast.success('Imagem enviada e URL preenchida automaticamente');
+      toast.success('Imagem enviada para a Cloudinary e URL preenchida automaticamente');
     } catch (error) {
-      console.error('Erro ao enviar imagem para a nuvem:', error);
-      toast.error('Nao foi possivel enviar a imagem para a nuvem');
+      console.error('Erro ao enviar imagem para a Cloudinary:', error);
+      toast.error('Nao foi possivel enviar a imagem para a Cloudinary');
     } finally {
       setIsUploadingImage(false);
 
@@ -137,12 +146,12 @@ export const ProductAdminPanel = ({
 
     const payload = {
       ...formData,
-      legacyId: formData.legacyId || products.length + 1,
       name: formData.name.trim(),
       category: formData.category.trim(),
       description: formData.description.trim(),
       image: formData.image.trim(),
-      imageAlt: formData.imageAlt.trim() || formData.name.trim()
+      imageAlt: formData.imageAlt.trim() || formData.name.trim(),
+      public_id: formData.publicId.trim()
     };
 
     if (!payload.name || !payload.category || !payload.description || !payload.image) {
@@ -293,7 +302,7 @@ export const ProductAdminPanel = ({
 
               {!canUploadToCloudinary && imageMode === 'upload' ? (
                 <div className="mb-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                 Ambiente de Upload de Fotos não Habilitado.
+                  Defina `REACT_APP_CLOUDINARY_CLOUD_NAME` e `REACT_APP_CLOUDINARY_UPLOAD_PRESET` para habilitar o upload.
                 </div>
               ) : null}
 
@@ -305,7 +314,7 @@ export const ProductAdminPanel = ({
                   name="image"
                   value={formData.image}
                   onChange={handleChange}
-                  placeholder="A URL aparece aqui depois do upload"
+                  placeholder="A URL da Cloudinary aparece aqui depois do upload"
                   className="w-full rounded-2xl border border-gray-200 px-4 py-3 text-sm outline-none transition focus:border-emerald-500"
                 />
               </div>
