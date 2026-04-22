@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import { CatalogPage } from "./pages/CatalogPage";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
+      <SpeedInsights />
     </div>
   );
 }
