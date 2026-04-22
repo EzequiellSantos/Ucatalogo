@@ -22,7 +22,7 @@ export const catalogData = {
         },
         products: [
             {
-                "id": 1,
+                "legacyId": 1,
                 "name": "Fritadeira Airfryer Itatiaia",
                 "category": "Eletroportateis",
                 "price": 0,
@@ -31,7 +31,7 @@ export const catalogData = {
                 "imageAlt": "Imagem Airfryer Itatiaia"
             },
             {
-                "id": 2,
+                "legacyId": 2,
                 "name": "Guarda Roupa Capelinha 2 Portas Compacto",
                 "category": "Moveis",
                 "price": 0,
@@ -40,7 +40,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa Capelinha"
             },
             {
-                "id": 3,
+                "legacyId": 3,
                 "name": "Guarda Roupa Infantil",
                 "category": "Moveis",
                 "price": 0,
@@ -49,7 +49,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa Infantil"
             },
             {
-                "id": 4,
+                "legacyId": 4,
                 "name": "Bancos Para Balcão",
                 "category": "Moveis",
                 "price": 0,
@@ -58,7 +58,7 @@ export const catalogData = {
                 "imageAlt": "Bancos Para Balcão"
             },
             {
-                "id": 5,
+                "legacyId": 5,
                 "name": "Balcão Multiuso Prático",
                 "category": "Moveis",
                 "price": 0,
@@ -67,7 +67,7 @@ export const catalogData = {
                 "imageAlt": "Balcão Multiuso"
             },
             {
-                "id": 6,
+                "legacyId": 6,
                 "name": "Cozinha Compacta Elegance Plus",
                 "category": "Moveis",
                 "price": 0,
@@ -76,7 +76,7 @@ export const catalogData = {
                 "imageAlt": "Cozinha Compacta"
             },
             {
-                "id": 7,
+                "legacyId": 7,
                 "name": "Conjunto de Mesa",
                 "category": "Moveis",
                 "price": 0,
@@ -85,7 +85,7 @@ export const catalogData = {
                 "imageAlt": "Conjunto de Mesa"
             },
             {
-                "id": 8,
+                "legacyId": 8,
                 "name": "Armarios de 6 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -94,7 +94,7 @@ export const catalogData = {
                 "imageAlt": "Armário"
             },
             {
-                "id": 9,
+                "legacyId": 9,
                 "name": "Cama Unibox Casal",
                 "category": "Moveis",
                 "price": 0,
@@ -103,7 +103,7 @@ export const catalogData = {
                 "imageAlt": "Cama casal"
             },
             {
-                "id": 10,
+                "legacyId": 10,
                 "name": "Cabeceira Alcolchoada",
                 "category": "Moveis",
                 "price": 0,
@@ -112,7 +112,7 @@ export const catalogData = {
                 "imageAlt": "Cabeceira"
             },
             {
-                "id": 11,
+                "legacyId": 11,
                 "name": "Armário Newton 8 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -121,7 +121,7 @@ export const catalogData = {
                 "imageAlt": "Armário"
             },
             {
-                "id": 12,
+                "legacyId": 12,
                 "name": "Conjunto Harmony",
                 "category": "Moveis",
                 "price": 0,
@@ -130,7 +130,7 @@ export const catalogData = {
                 "imageAlt": "Poltrona"
             },
             {
-                "id": 13,
+                "legacyId": 13,
                 "name": "Guarda Roupa 6 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -139,7 +139,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa"
             },
             {
-                "id": 14,
+                "legacyId": 14,
                 "name": "Cadeira de Balanço",
                 "category": "Moveis",
                 "price": 0,
@@ -148,7 +148,7 @@ export const catalogData = {
                 "imageAlt": "Cadeira de Balanço"
             },
             {
-                "id": 15,
+                "legacyId": 15,
                 "name": "Fogão Itatiaia 5 Bocas",
                 "category": "Eletrodomesticos",
                 "price": 0,
@@ -157,7 +157,7 @@ export const catalogData = {
                 "imageAlt": "Fogão"
             },
             {
-                "id": 16,
+                "legacyId": 16,
                 "name": "Fogão Itatiaia 4 Bocas",
                 "category": "Eletrodomesticos",
                 "price": 0,
@@ -166,7 +166,7 @@ export const catalogData = {
                 "imageAlt": "Fogão"
             },
             {
-                "id": 17,
+                "legacyId": 17,
                 "name": "Painel Para TV",
                 "category": "Moveis",
                 "price": 0,
@@ -175,7 +175,7 @@ export const catalogData = {
                 "imageAlt": "Painel"
             },
             {
-                "id": 18,
+                "legacyId": 18,
                 "name": "Multiuso",
                 "category": "Moveis",
                 "price": 0,
@@ -184,7 +184,7 @@ export const catalogData = {
                 "imageAlt": "Multiuso"
             },
             {
-                "id": 19,
+                "legacyId": 19,
                 "name": "Fogão Itatiaia 6 Bocas",
                 "category": "Eletrodomesticos",
                 "price": 0,
@@ -193,7 +193,7 @@ export const catalogData = {
                 "imageAlt": "Fogão"
             },
             {
-                "id": 20,
+                "legacyId": 20,
                 "name": "Colchão Espuma Casal D-20",
                 "category": "Moveis",
                 "price": 0,
@@ -202,7 +202,7 @@ export const catalogData = {
                 "imageAlt": "Multiuso"
             },
             {
-                "id": 21,
+                "legacyId": 21,
                 "name": "Colchão Espuma Solteiro D-20",
                 "category": "Moveis",
                 "price": 0,
@@ -211,7 +211,7 @@ export const catalogData = {
                 "imageAlt": "Colchão Espuma"
             },
             {
-                "id": 22,
+                "legacyId": 22,
                 "name": "Rack com Painel",
                 "category": "Moveis",
                 "price": 0,
@@ -220,7 +220,7 @@ export const catalogData = {
                 "imageAlt": "Rack com Painel"
             },
             {
-                "id": 23,
+                "legacyId": 23,
                 "name": "Guarda Roupa Capelinha 4 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -229,7 +229,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa Capelinha"
             },
             {
-                "id": 24,
+                "legacyId": 24,
                 "name": "Cama Queen Elegance",
                 "category": "Moveis",
                 "price": 0,
@@ -238,7 +238,7 @@ export const catalogData = {
                 "imageAlt": "Cama"
             },
             {
-                "id": 25,
+                "legacyId": 25,
                 "name": "liquidificador Mondial 550w",
                 "category": "Eletroportateis",
                 "price": 0,
@@ -247,7 +247,7 @@ export const catalogData = {
                 "imageAlt": "Liquidificador"
             },
             {
-                "id": 26,
+                "legacyId": 26,
                 "name": "Penteadeira Bella",
                 "category": "Moveis",
                 "price": 0,
@@ -256,7 +256,7 @@ export const catalogData = {
                 "imageAlt": "Penteadeira"
             },
             {
-                "id": 27,
+                "legacyId": 27,
                 "name": "Cômoda Infantil",
                 "category": "Moveis",
                 "price": 0,
@@ -265,7 +265,7 @@ export const catalogData = {
                 "imageAlt": "Cômoda"
             },
             {
-                "id": 28,
+                "legacyId": 28,
                 "name": "Cama King Majesty Sleep Conforta",
                 "category": "Moveis",
                 "price": 0,
@@ -274,7 +274,7 @@ export const catalogData = {
                 "imageAlt": "Cama"
             },
             {
-                "id": 29,
+                "legacyId": 29,
                 "name": "Armário Multiuso Premium",
                 "category": "Moveis",
                 "price": 0,
@@ -283,7 +283,7 @@ export const catalogData = {
                 "imageAlt": "Armário"
             },
             {
-                "id": 30,
+                "legacyId": 30,
                 "name": "Fruteira de Rattan",
                 "category": "Moveis",
                 "price": 0,
@@ -292,7 +292,7 @@ export const catalogData = {
                 "imageAlt": "Fruteira"
             },
             {
-                "id": 31,
+                "legacyId": 31,
                 "name": "Conjunto de Sofá Luxor",
                 "category": "Moveis",
                 "price": 0,
@@ -301,7 +301,7 @@ export const catalogData = {
                 "imageAlt": "Sofá"
             },
             {
-                "id": 32,
+                "legacyId": 32,
                 "name": "Ventilador De Pé",
                 "category": "Eletrodomesticos",
                 "price": 0,
@@ -310,7 +310,7 @@ export const catalogData = {
                 "imageAlt": "Ventilador"
             },
             {
-                "id": 33,
+                "legacyId": 33,
                 "name": "Guarda Roupa de 2 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -319,7 +319,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa"
             },
             {
-                "id": 34,
+                "legacyId": 34,
                 "name": "Armário Multiuso Elegance Plus",
                 "category": "Moveis",
                 "price": 0,
@@ -328,7 +328,7 @@ export const catalogData = {
                 "imageAlt": "Armário Multiuso"
             },
             {
-                "id": 35,
+                "legacyId": 35,
                 "name": "Cama de Casal Sleep",
                 "category": "Moveis",
                 "price": 0,
@@ -337,7 +337,7 @@ export const catalogData = {
                 "imageAlt": "Cama"
             },
             {
-                "id": 36,
+                "legacyId": 36,
                 "name": "Grade de Casal",
                 "category": "Moveis",
                 "price": 0,
@@ -346,7 +346,7 @@ export const catalogData = {
                 "imageAlt": "Grade"
             },
             {
-                "id": 37,
+                "legacyId": 37,
                 "name": "Colchão Queen e King",
                 "category": "Moveis",
                 "price": 0,
@@ -355,7 +355,7 @@ export const catalogData = {
                 "imageAlt": "Colchão"
             },
             {
-                "id": 38,
+                "legacyId": 38,
                 "name": "Roupeiro Ana 6 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -364,7 +364,7 @@ export const catalogData = {
                 "imageAlt": "Roupeiro"
             },
             {
-                "id": 39,
+                "legacyId": 39,
                 "name": "Roupeiro Ana 6 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -373,7 +373,7 @@ export const catalogData = {
                 "imageAlt": "Roupeiro"
             },
             {
-                "id": 40,
+                "legacyId": 40,
                 "name": "Smart TV SEMP",
                 "category": "Eletroeletronicos",
                 "price": 0,
@@ -382,7 +382,7 @@ export const catalogData = {
                 "imageAlt": "TV"
             },
             {
-                "id": 41,
+                "legacyId": 41,
                 "name": "Cômoda 2 Portas Rustico Prime",
                 "category": "Moveis",
                 "price": 0,
@@ -391,7 +391,7 @@ export const catalogData = {
                 "imageAlt": "Cômoda"
             },
             {
-                "id": 42,
+                "legacyId": 42,
                 "name": "Conjunto Mesa Mármore",
                 "category": "Moveis",
                 "price": 0,
@@ -400,7 +400,7 @@ export const catalogData = {
                 "imageAlt": "Mesa"
             },
             {
-                "id": 43,
+                "legacyId": 43,
                 "name": "Tanquinhos Suggar",
                 "category": "Eletrodomesticos",
                 "price": 0,
@@ -409,7 +409,7 @@ export const catalogData = {
                 "imageAlt": "Tanquinho"
             },
             {
-                "id": 44,
+                "legacyId": 44,
                 "name": "Sanduicheira Elétrica Itatiaia",
                 "category": "Eletroportateis",
                 "price": 0,
@@ -418,7 +418,7 @@ export const catalogData = {
                 "imageAlt": "Sanduicheira"
             },
             {
-                "id": 45,
+                "legacyId": 45,
                 "name": "Guarda Roupa 4 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -427,7 +427,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa"
             },
             {
-                "id": 46,
+                "legacyId": 46,
                 "name": "Balcão Porta Allure",
                 "category": "Moveis",
                 "price": 0,
@@ -436,7 +436,7 @@ export const catalogData = {
                 "imageAlt": "Balcão"
             },
             {
-                "id": 47,
+                "legacyId": 47,
                 "name": "Roupeiro Premium 6 Portas Essence",
                 "category": "Moveis",
                 "price": 0,
@@ -445,7 +445,7 @@ export const catalogData = {
                 "imageAlt": "Roupeiro"
             },
             {
-                "id": 48,
+                "legacyId": 48,
                 "name": "Armário de Aço Branco",
                 "category": "Moveis",
                 "price": 0,
@@ -454,7 +454,7 @@ export const catalogData = {
                 "imageAlt": "Armário de Aço"
             },
             {
-                "id": 49,
+                "legacyId": 49,
                 "name": "Cadeira de Plástico Empilhavel",
                 "category": "Moveis",
                 "price": 0,
@@ -463,7 +463,7 @@ export const catalogData = {
                 "imageAlt": "Cadeira de Plástico Empilhavel"
             },
             {
-                "id": 50,
+                "legacyId": 50,
                 "name": "Guarda Roupa Capelinha 2 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -472,7 +472,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa Capelinha"
             },
             {
-                "id": 51,
+                "legacyId": 51,
                 "name": "Rack Multifuncional",
                 "category": "Moveis",
                 "price": 0,
@@ -481,7 +481,7 @@ export const catalogData = {
                 "imageAlt": "Guarda Roupa Capelinha"
             },
             {
-                "id": 52,
+                "legacyId": 52,
                 "name": "Cama Solteiro Netuno Sleep",
                 "category": "Moveis",
                 "price": 0,
@@ -490,7 +490,7 @@ export const catalogData = {
                 "imageAlt": "Cama Solteiro"
             },
             {
-                "id": 53,
+                "legacyId": 53,
                 "name": "Antena Parabólica",
                 "category": "Eletroeletronicos",
                 "price": 0,
@@ -499,7 +499,7 @@ export const catalogData = {
                 "imageAlt": "Antena Parabólica"
             },
             {
-                "id": 54,
+                "legacyId": 54,
                 "name": "Elegance 3 Portas",
                 "category": "Moveis",
                 "price": 0,
@@ -508,7 +508,7 @@ export const catalogData = {
                 "imageAlt": "Elegance 3 Portas"
             },
             {
-                "id": 55,
+                "legacyId": 55,
                 "name": "Grade Cama Solteiro Milano Sleep",
                 "category": "Moveis",
                 "price": 0,
@@ -517,7 +517,7 @@ export const catalogData = {
                 "imageAlt": "Grade Cama Solteiro Milano Sleep"
             },
             {
-                "id": 56,
+                "legacyId": 56,
                 "name": "Estante Multifuncional",
                 "category": "Moveis",
                 "price": 0,
@@ -526,7 +526,7 @@ export const catalogData = {
                 "imageAlt": "Estante Multifuncional"
             },
             {
-                "id": 57,
+                "legacyId": 57,
                 "name": "Guarda Roupa 4 Portas",
                 "category": "Moveis",
                 "price": 0,
