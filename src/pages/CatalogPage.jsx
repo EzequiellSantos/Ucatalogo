@@ -9,10 +9,14 @@ import { CategoriesView } from '../components/catalog/CategoriesView';
 import { ProfileView } from '../components/catalog/ProfileView';
 import { ProductDetail } from '../components/catalog/ProductDetail';
 import { fetchCatalogData } from '../data/mockCatalog';
+import {
+  createProduct as createProductRequest,
+  deleteProduct as deleteProductRequest,
+  fetchProducts,
+  updateProduct as updateProductRequest
+} from '../services/productsApi';
 import { Printer } from 'lucide-react';
 import { toast } from 'sonner';
-
-const getProductsStorageKey = (companyId) => `ucatalogo-products:${companyId}`;
 
 export const CatalogPage = () => {
   const { companyId } = useParams();
@@ -26,6 +30,7 @@ export const CatalogPage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
+  const [isSavingProduct, setIsSavingProduct] = useState(false);
 
   useEffect(() => {
     const loadCatalog = async () => {
@@ -37,11 +42,16 @@ export const CatalogPage = () => {
           document.title = data.companyName;
         }
 
-        const savedProducts = window.localStorage.getItem(getProductsStorageKey(companyId));
-        const parsedProducts = savedProducts ? JSON.parse(savedProducts) : data.products;
+        try {
+          const productsFromApi = await fetchProducts();
+          setProducts(productsFromApi);
+        } catch (apiError) {
+          console.error('Error loading products from API:', apiError);
+          setProducts([]);
+          toast.error('Nao foi possivel carregar os produtos da API.');
+        }
 
         setCatalogData(data);
-        setProducts(parsedProducts);
       } catch (error) {
         console.error('Error loading catalog:', error);
         toast.error(`Empresa '${companyId}' nao encontrada`);
@@ -77,38 +87,62 @@ export const CatalogPage = () => {
     return result;
   }, [catalogData, products, searchQuery, selectedCategory]);
 
-  const persistProducts = (nextProducts) => {
-    setProducts(nextProducts);
-    window.localStorage.setItem(getProductsStorageKey(companyId), JSON.stringify(nextProducts));
-  };
-
-  const handleAddProduct = (product) => {
-    const nextId = products.reduce((highestId, item) => Math.max(highestId, Number(item.id) || 0), 0) + 1;
-    const nextProducts = [...products, { id: nextId, price: 0, ...product }];
-    persistProducts(nextProducts);
-    toast.success('Produto adicionado ao catalogo');
-  };
-
-  const handleUpdateProduct = (productId, updates) => {
-    const nextProducts = products.map((product) =>
-      product.id === productId ? { ...product, ...updates } : product
-    );
-
-    persistProducts(nextProducts);
-    setSelectedProduct((current) => (current?.id === productId ? { ...current, ...updates } : current));
-    toast.success('Produto atualizado');
-  };
-
-  const handleDeleteProduct = (productId) => {
-    const nextProducts = products.filter((product) => product.id !== productId);
-    persistProducts(nextProducts);
-
-    if (selectedProduct?.id === productId) {
-      setSelectedProduct(null);
-      setIsDrawerOpen(false);
+  const handleAddProduct = async (product) => {
+    try {
+      setIsSavingProduct(true);
+      const createdProduct = await createProductRequest(product);
+      setProducts((current) => [...current, createdProduct]);
+      toast.success('Produto adicionado ao catalogo');
+      return true;
+    } catch (error) {
+      console.error('Error creating product:', error);
+      toast.error('Nao foi possivel adicionar o produto');
+      return false;
+    } finally {
+      setIsSavingProduct(false);
     }
+  };
 
-    toast.success('Produto removido do catalogo');
+  const handleUpdateProduct = async (productId, updates) => {
+    try {
+      setIsSavingProduct(true);
+      const updatedProduct = await updateProductRequest(productId, updates);
+
+      setProducts((current) =>
+        current.map((product) => (product.id === productId ? updatedProduct : product))
+      );
+      setSelectedProduct((current) => (current?.id === productId ? updatedProduct : current));
+      toast.success('Produto atualizado');
+      return true;
+    } catch (error) {
+      console.error('Error updating product:', error);
+      toast.error('Nao foi possivel atualizar o produto');
+      return false;
+    } finally {
+      setIsSavingProduct(false);
+    }
+  };
+
+  const handleDeleteProduct = async (productId) => {
+    try {
+      setIsSavingProduct(true);
+      await deleteProductRequest(productId);
+      setProducts((current) => current.filter((product) => product.id !== productId));
+
+      if (selectedProduct?.id === productId) {
+        setSelectedProduct(null);
+        setIsDrawerOpen(false);
+      }
+
+      toast.success('Produto removido do catalogo');
+      return true;
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      toast.error('Nao foi possivel remover o produto');
+      return false;
+    } finally {
+      setIsSavingProduct(false);
+    }
   };
 
   const handleProductClick = (product) => {
@@ -136,8 +170,22 @@ export const CatalogPage = () => {
     return null;
   }
 
-  const categoryNames = catalogData.categories.map((category) => category.id);
-  const printableCatalogData = { ...catalogData, products };
+  const categoriesWithCounts = catalogData.categories.map((category) => {
+    if (category.id === 'Todos') {
+      return {
+        ...category,
+        count: products.length
+      };
+    }
+
+    return {
+      ...category,
+      count: products.filter((product) => product.category === category.id).length
+    };
+  });
+
+  const categoryNames = categoriesWithCounts.map((category) => category.id);
+  const printableCatalogData = { ...catalogData, categories: categoriesWithCounts, products };
 
   return (
     <CatalogLayout activeTab={activeTab} setActiveTab={setActiveTab} catalogData={printableCatalogData}>
@@ -195,7 +243,7 @@ export const CatalogPage = () => {
 
       {activeTab === 'categories' && (
         <CategoriesView
-          categories={catalogData.categories}
+          categories={categoriesWithCounts}
           onCategorySelect={handleCategorySelect}
         />
       )}
@@ -208,6 +256,7 @@ export const CatalogPage = () => {
           onAddProduct={handleAddProduct}
           onUpdateProduct={handleUpdateProduct}
           onDeleteProduct={handleDeleteProduct}
+          isSavingProduct={isSavingProduct}
         />
       )}
 

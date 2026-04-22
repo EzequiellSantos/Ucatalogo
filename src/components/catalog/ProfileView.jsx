@@ -12,7 +12,8 @@ export const ProfileView = ({
   products,
   onAddProduct,
   onUpdateProduct,
-  onDeleteProduct
+  onDeleteProduct,
+  isSavingProduct = false
 }) => {
   const authStorageKey = useMemo(() => getAuthStorageKey(companyId), [companyId]);
   const [authenticatedUser, setAuthenticatedUser] = useState(null);
@@ -220,6 +221,7 @@ export const ProfileView = ({
           onAddProduct={onAddProduct}
           onUpdateProduct={onUpdateProduct}
           onDeleteProduct={onDeleteProduct}
+          isSavingProduct={isSavingProduct}
         />
       ) : null}
     </div>

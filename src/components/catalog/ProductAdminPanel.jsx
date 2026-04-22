@@ -41,7 +41,8 @@ export const ProductAdminPanel = ({
   categories,
   onAddProduct,
   onUpdateProduct,
-  onDeleteProduct
+  onDeleteProduct,
+  isSavingProduct = false
 }) => {
   const availableCategories = useMemo(
     () => categories.filter((category) => category !== 'Todos'),
@@ -130,7 +131,7 @@ export const ProductAdminPanel = ({
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const payload = {
@@ -147,13 +148,17 @@ export const ProductAdminPanel = ({
       return;
     }
 
+    let saved = false;
+
     if (editingId) {
-      onUpdateProduct(editingId, payload);
+      saved = await onUpdateProduct(editingId, payload);
     } else {
-      onAddProduct(payload);
+      saved = await onAddProduct(payload);
     }
 
-    resetForm();
+    if (saved) {
+      resetForm();
+    }
   };
 
   const previewImage =
@@ -278,7 +283,7 @@ export const ProductAdminPanel = ({
                     type="file"
                     accept="image/*"
                     onChange={handleImageFileChange}
-                    disabled={isUploadingImage}
+                    disabled={isUploadingImage || isSavingProduct}
                     className="hidden"
                   />
                 </label>
@@ -319,11 +324,11 @@ export const ProductAdminPanel = ({
 
           <button
             type="submit"
-            disabled={isUploadingImage}
+            disabled={isUploadingImage || isSavingProduct}
             className="flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-emerald-300"
           >
             {isUploadingImage ? <LoaderCircle className="h-4 w-4 animate-spin" /> : editingId ? <Save className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-            {isUploadingImage ? 'Enviando imagem...' : editingId ? 'Salvar alteracoes' : 'Adicionar produto'}
+            {isUploadingImage ? 'Enviando imagem...' : isSavingProduct ? 'Salvando produto...' : editingId ? 'Salvar alteracoes' : 'Adicionar produto'}
           </button>
         </form>
       </div>
@@ -356,6 +361,7 @@ export const ProductAdminPanel = ({
               <button
                 type="button"
                 onClick={() => handleEdit(product)}
+                disabled={isSavingProduct}
                 className="rounded-full border border-gray-200 p-2 text-gray-600 transition-colors hover:bg-gray-50"
                 aria-label={`Editar ${product.name}`}
               >
@@ -365,6 +371,7 @@ export const ProductAdminPanel = ({
               <button
                 type="button"
                 onClick={() => onDeleteProduct(product.id)}
+                disabled={isSavingProduct}
                 className="rounded-full border border-red-200 p-2 text-red-600 transition-colors hover:bg-red-50"
                 aria-label={`Remover ${product.name}`}
               >
