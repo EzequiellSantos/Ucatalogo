@@ -15,10 +15,10 @@ const normalizeProduct = (product) => ({
   legacyId: product.legacyId ?? null,
   name: product.name,
   category: product.category,
-  price: Number(product.price || 0),
+  price: product.price ?? 0,
   description: product.description,
   image: product.image,
-  imageAlt: product.imageAlt || product.name,
+  imageAlt: product.imageAlt,
   publicId: product.public_id ?? product.publicId ?? null
 });
 
