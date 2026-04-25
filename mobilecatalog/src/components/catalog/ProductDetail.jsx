@@ -147,7 +147,7 @@ export const ProductDetail = ({
                     R$ {product.price.toFixed(2).replace(".", ",")}
                   </p> */}
 
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">
                     {product.description}
                   </p>
                 </div>

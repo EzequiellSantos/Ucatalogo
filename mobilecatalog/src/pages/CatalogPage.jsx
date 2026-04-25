@@ -26,7 +26,8 @@ export const CatalogPage = () => {
 
   const [catalogData, setCatalogData] = useState(null);
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isCatalogLoading, setIsCatalogLoading] = useState(true);
+  const [isProductsLoading, setIsProductsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -38,29 +39,20 @@ export const CatalogPage = () => {
   useEffect(() => {
     const loadCatalog = async () => {
       try {
-        setLoading(true);
+        setIsCatalogLoading(true);
         const data = await fetchCatalogData(companyId);
+
+        setCatalogData(data);
 
         if (data) {
           document.title = data.companyName;
         }
-
-        try {
-          const productsFromApi = await fetchProducts();
-          setProducts(productsFromApi);
-        } catch (apiError) {
-          console.error('Error loading products from API:', apiError);
-          setProducts([]);
-          toast.error('Nao foi possivel carregar os produtos da API.');
-        }
-
-        setCatalogData(data);
       } catch (error) {
         console.error('Error loading catalog:', error);
         toast.error(`Empresa '${companyId}' nao encontrada`);
         setTimeout(() => navigate('/nike'), 2000);
       } finally {
-        setLoading(false);
+        setIsCatalogLoading(false);
       }
     };
 
@@ -68,6 +60,28 @@ export const CatalogPage = () => {
       loadCatalog();
     }
   }, [companyId, navigate]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      try {
+        setIsProductsLoading(true);
+        const productsFromApi = await fetchProducts();
+        setProducts(productsFromApi);
+      } catch (apiError) {
+        console.error('Error loading products from API:', apiError);
+        setProducts([]);
+        toast.error('Nao foi possivel carregar os produtos da API.');
+      } finally {
+        setIsProductsLoading(false);
+      }
+    };
+
+    if (!catalogData) {
+      return;
+    }
+
+    loadProducts();
+  }, [catalogData]);
 
   useEffect(() => {
     if (!companyId) {
@@ -179,15 +193,8 @@ export const CatalogPage = () => {
     setActiveTab('products');
   };
 
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-white">
-        <div className="space-y-3 text-center">
-          <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-gray-900 border-t-transparent" />
-          <p className="text-sm text-gray-600">Carregando catalogo...</p>
-        </div>
-      </div>
-    );
+  if (!catalogData && isCatalogLoading) {
+    return null;
   }
 
   if (!catalogData) {
@@ -218,6 +225,7 @@ export const CatalogPage = () => {
           catalogData={printableCatalogData}
           setActiveTab={setActiveTab}
           setSearchQuery={setSearchQuery}
+          isProductsLoading={isProductsLoading}
         />
       )}
 
@@ -254,14 +262,22 @@ export const CatalogPage = () => {
             setSelectedCategory={setSelectedCategory}
           />
 
-          {filteredProducts.length === 0 ? (
+          {!isProductsLoading && filteredProducts.length === 0 ? (
             <div className="px-4 py-20 text-center">
-              <p className="text-sm text-gray-400">Nenhum produto encontrado</p>
+              {searchQuery !== '' ?
+                (
+                  <p className="text-sm text-gray-400">Nenhum Resultado encontrado para: <strong>{searchQuery}</strong></p>
+                ) : (
+                  <p className="text-sm text-gray-400">Nenhum Resultado encontrado</p>
+                )
+              }
+
             </div>
           ) : (
             <ProductGrid
               products={filteredProducts}
               onProductClick={handleProductClick}
+              isLoading={isProductsLoading}
             />
           )}
         </>

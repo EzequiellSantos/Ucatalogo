@@ -1,6 +1,6 @@
 import { Sparkles, TrendingUp, Heart } from 'lucide-react';
 
-export const HomeView = ({ catalogData, setActiveTab, setSearchQuery }) => {
+export const HomeView = ({ catalogData, setActiveTab, setSearchQuery, isProductsLoading = false }) => {
   const stats = [
     { icon: TrendingUp, label: 'Produtos', value: catalogData.products.length },
     { icon: Heart, label: 'Categorias', value: catalogData.categories.length - 1 },
@@ -72,33 +72,49 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery }) => {
           <Sparkles className="w-5 h-5 text-yellow-500" />
         </div>
         <div className="space-y-3">
-          {featuredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="flex gap-3 bg-white rounded-2xl cursor-pointer border border-gray-100 p-3 hover:shadow-md transition-all"
-              data-testid={`featured-product-${product.id}`}
-            >
-              <img
-                src={product.image}
-                alt={product.imageAlt}
-                className="w-20 h-20 object-cover rounded-xl bg-gray-50"
-              />
+          {isProductsLoading ? (
+            Array.from({ length: 3 }).map((_, index) => (
               <div
-                className="flex-1 min-w-0"
-                onClick={() => SetChoiceProduct(product.name)}
+                key={`featured-skeleton-${index}`}
+                className="flex gap-3 rounded-2xl border border-gray-100 bg-white p-3"
               >
-                <h3 className="text-sm font-medium text-gray-900 line-clamp-1 mt-3">
-                  {product.name}
-                </h3>
-                <p className="text-xs text-gray-500 line-clamp-2 mt-2">
-                  {product.description}
-                </p>
-                {/* <p className="text-base font-medium text-black mt-2">
-                  R$ {product.price.toFixed(2).replace('.', ',')}
-                </p> */}
+                <div className="h-20 w-20 animate-pulse rounded-xl bg-gray-100" />
+                <div className="flex-1 space-y-3 py-2">
+                  <div className="h-4 w-2/3 animate-pulse rounded-full bg-gray-100" />
+                  <div className="h-3 w-full animate-pulse rounded-full bg-gray-100" />
+                  <div className="h-3 w-5/6 animate-pulse rounded-full bg-gray-100" />
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            featuredProducts.map((product) => (
+              <div
+                key={product.id}
+                className="flex gap-3 bg-white rounded-2xl cursor-pointer border border-gray-100 p-3 hover:shadow-md transition-all"
+                data-testid={`featured-product-${product.id}`}
+              >
+                <img
+                  src={product.image}
+                  alt={product.imageAlt}
+                  className="w-20 h-20 object-cover rounded-xl bg-gray-50"
+                />
+                <div
+                  className="flex-1 min-w-0"
+                  onClick={() => SetChoiceProduct(product.name)}
+                >
+                  <h3 className="text-sm font-medium text-gray-900 line-clamp-1 mt-3">
+                    {product.name}
+                  </h3>
+                  <p className="text-xs text-gray-500 line-clamp-2 mt-2">
+                    {product.description}
+                  </p>
+                  {/* <p className="text-base font-medium text-black mt-2">
+                    R$ {product.price.toFixed(2).replace('.', ',')}
+                  </p> */}
+                </div>
+              </div>
+            ))
+          )}
         </div>
       </div>
 
