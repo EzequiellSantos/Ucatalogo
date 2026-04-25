@@ -161,9 +161,6 @@ export const ProfileView = ({
                 Area administrativa
               </div>
               <h2 className="text-xl font-semibold">Gerencie o catalogo pelo perfil</h2>
-              <p className="mt-2 text-sm text-slate-300">
-                O acesso para adicionar, editar e remover produtos fica liberado apenas apos login com Google.
-              </p>
             </div>
 
             {authenticatedUser ? (

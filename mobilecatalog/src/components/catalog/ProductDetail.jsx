@@ -162,9 +162,6 @@ export const ProductDetail = ({
                         <h3 className="mt-1 text-base font-semibold text-slate-900">
                           Edite este produto sem sair da visualizacao
                         </h3>
-                        <p className="mt-1 text-sm text-slate-500">
-                          O card de edicao aparece no fluxo da tela e evita um painel fixo pesado no mobile.
-                        </p>
                       </div>
 
                       <button
@@ -192,7 +189,7 @@ export const ProductDetail = ({
                           isSavingProduct={isSavingProduct}
                           mode="single"
                           title="Editar produto"
-                          description="Atualize os dados deste item em um card compacto, pensado para encaixar bem na rolagem do celular."
+                          description="Atualize os dados deste item."
                           onDone={(result) => {
                             setIsEditingProduct(false);
 
