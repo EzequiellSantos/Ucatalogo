@@ -10,11 +10,9 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery, isProducts
   const featuredProducts = catalogData.products.slice(-3);
 
   const SetChoiceProduct = (productText) => {
-
-    setActiveTab('products')
-    setSearchQuery(productText)
-
-  }
+    setSearchQuery(productText);
+    setActiveTab('products');
+  };
 
   const setActiveLabel = (value) => {
 
@@ -88,9 +86,11 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery, isProducts
             ))
           ) : (
             featuredProducts.map((product) => (
-              <div
+              <button
                 key={product.id}
-                className="flex gap-3 bg-white rounded-2xl cursor-pointer border border-gray-100 p-3 hover:shadow-md transition-all"
+                type="button"
+                onClick={() => SetChoiceProduct(product.name)}
+                className="flex w-full gap-3 bg-white rounded-2xl cursor-pointer border border-gray-100 p-3 text-left hover:shadow-md transition-all"
                 data-testid={`featured-product-${product.id}`}
               >
                 <img
@@ -98,10 +98,7 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery, isProducts
                   alt={product.imageAlt}
                   className="w-20 h-20 object-cover rounded-xl bg-gray-50"
                 />
-                <div
-                  className="flex-1 min-w-0"
-                  onClick={() => SetChoiceProduct(product.name)}
-                >
+                <div className="flex-1 min-w-0">
                   <h3 className="text-sm font-medium text-gray-900 line-clamp-1 mt-3">
                     {product.name}
                   </h3>
@@ -112,7 +109,7 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery, isProducts
                     R$ {product.price.toFixed(2).replace('.', ',')}
                   </p> */}
                 </div>
-              </div>
+              </button>
             ))
           )}
         </div>

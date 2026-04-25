@@ -104,6 +104,11 @@ export const CatalogPage = () => {
     };
   }, [companyId]);
 
+  useEffect(() => {
+    setIsDrawerOpen(false);
+    setSelectedProduct(null);
+  }, [activeTab]);
+
   const filteredProducts = useMemo(() => {
     if (!catalogData) return [];
 
@@ -188,9 +193,23 @@ export const CatalogPage = () => {
     setIsDrawerOpen(true);
   };
 
+  const handleDrawerChange = (isOpen) => {
+    setIsDrawerOpen(isOpen);
+
+    if (!isOpen) {
+      setSelectedProduct(null);
+    }
+  };
+
   const handleCategorySelect = (categoryId) => {
     setSelectedCategory(categoryId);
+    handleDrawerChange(false);
     setActiveTab('products');
+  };
+
+  const handleTabChange = (tabId) => {
+    handleDrawerChange(false);
+    setActiveTab(tabId);
   };
 
   if (!catalogData && isCatalogLoading) {
@@ -219,11 +238,11 @@ export const CatalogPage = () => {
   const printableCatalogData = { ...catalogData, categories: categoriesWithCounts, products };
 
   return (
-    <CatalogLayout activeTab={activeTab} setActiveTab={setActiveTab} catalogData={printableCatalogData}>
+    <CatalogLayout activeTab={activeTab} setActiveTab={handleTabChange} catalogData={printableCatalogData}>
       {activeTab === 'home' && (
         <HomeView
           catalogData={printableCatalogData}
-          setActiveTab={setActiveTab}
+          setActiveTab={handleTabChange}
           setSearchQuery={setSearchQuery}
           isProductsLoading={isProductsLoading}
         />
@@ -307,7 +326,8 @@ export const CatalogPage = () => {
       <ProductDetail
         product={selectedProduct}
         open={isDrawerOpen}
-        onClose={setIsDrawerOpen}
+        onClose={handleDrawerChange}
+        activeTab={activeTab}
         whatsappNumber={catalogData.whatsappNumber}
         authenticatedUser={authenticatedUser}
         categories={categoryNames}

@@ -7,6 +7,7 @@ export const ProductDetail = ({
   product,
   open,
   onClose,
+  activeTab,
   whatsappNumber,
   authenticatedUser,
   categories,
@@ -46,6 +47,12 @@ export const ProductDetail = ({
     }
   }, [open, product?.id]);
 
+  useEffect(() => {
+    if (open && activeTab !== 'products') {
+      onClose(false);
+    }
+  }, [activeTab, onClose, open]);
+
   if (!product) return null;
 
   const handleWhatsAppOrder = () => {
@@ -60,6 +67,7 @@ export const ProductDetail = ({
   return (
     <>
       <Drawer.Root
+        modal={false}
         open={open}
         onOpenChange={(state) => {
           if (lightboxOpen) return; // impede fechar drawer
@@ -68,7 +76,7 @@ export const ProductDetail = ({
       >
 
         <Drawer.Portal>
-          <Drawer.Overlay className={`fixed inset-0 bg-black/40 z-50`}
+          <Drawer.Overlay className={`pointer-events-none fixed inset-x-0 top-0 bottom-16 bg-black/40 z-40`}
           />
 
           {/* LIGHTBOX */}
@@ -100,7 +108,7 @@ export const ProductDetail = ({
 
           <Drawer.Content
             data-testid="product-detail-drawer"
-            className={`bg-white rounded-t-[2rem] p-6 h-[85vh] flex flex-col fixed bottom-0 left-0 right-0 z-50 mb-[50px]`}
+            className={`bg-white rounded-t-[2rem] p-6 h-[calc(85vh-1rem)] flex flex-col fixed bottom-16 left-0 right-0 z-50 mx-auto w-full max-w-md md:max-w-5xl`}
           >
             <Drawer.Title className="sr-only">
               {product.name}
