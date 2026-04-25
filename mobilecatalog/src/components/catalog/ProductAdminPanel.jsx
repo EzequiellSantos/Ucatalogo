@@ -58,7 +58,12 @@ export const ProductAdminPanel = ({
   onAddProduct,
   onUpdateProduct,
   onDeleteProduct,
-  isSavingProduct = false
+  isSavingProduct = false,
+  product = null,
+  mode = 'catalog',
+  title,
+  description,
+  onDone
 }) => {
   const availableCategories = useMemo(
     () => categories.filter((category) => category !== 'Todos'),
@@ -71,6 +76,7 @@ export const ProductAdminPanel = ({
   const [imageMode, setImageMode] = useState('url');
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const [formData, setFormData] = useState(createEmptyForm(availableCategories[0]));
+  const isSingleProductMode = mode === 'single';
 
   useEffect(() => {
     if (!editingId) {
@@ -88,6 +94,23 @@ export const ProductAdminPanel = ({
     };
   }, [editingId]);
 
+  useEffect(() => {
+    if (!isSingleProductMode || !product) {
+      return;
+    }
+
+    setEditingId(product.id);
+    setImageMode('url');
+    setFormData({
+      name: product.name,
+      category: product.category,
+      description: product.description,
+      image: product.image,
+      imageAlt: product.imageAlt,
+      publicId: product.publicId || product.public_id || ''
+    });
+  }, [isSingleProductMode, product]);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((current) => ({
@@ -102,10 +125,21 @@ export const ProductAdminPanel = ({
   };
 
   const resetForm = () => {
-    setEditingId(null);
+    setEditingId(isSingleProductMode ? product?.id ?? null : null);
     setImageMode('url');
     setIsUploadingImage(false);
-    setFormData(createEmptyForm(availableCategories[0]));
+    setFormData(
+      isSingleProductMode && product
+        ? {
+            name: product.name,
+            category: product.category,
+            description: product.description,
+            image: product.image,
+            imageAlt: product.imageAlt,
+            publicId: product.publicId || product.public_id || ''
+          }
+        : createEmptyForm(availableCategories[0])
+    );
 
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
@@ -203,6 +237,7 @@ export const ProductAdminPanel = ({
 
     if (saved) {
       resetForm();
+      onDone?.();
     }
   };
 
@@ -210,19 +245,26 @@ export const ProductAdminPanel = ({
     formData.image || 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=800&q=80';
 
   return (
-    <div className="space-y-6 px-4">
-      <div ref={formCardRef} className="rounded-3xl border border-emerald-100 bg-white p-5 shadow-sm">
+    <div className={isSingleProductMode ? 'space-y-4' : 'space-y-6 px-4'}>
+      <div
+        ref={formCardRef}
+        className={`rounded-3xl border bg-white p-5 shadow-sm ${
+          isSingleProductMode
+            ? 'border-slate-200 shadow-[0_20px_50px_-30px_rgba(15,23,42,0.55)]'
+            : 'border-emerald-100'
+        }`}
+      >
         <div className="mb-4 flex items-start justify-between gap-4">
           <div>
             <h2 className="text-lg font-semibold text-gray-900">
-              {editingId ? 'Editar produto' : 'Adicionar produto'}
+              {title ?? (editingId ? 'Editar produto' : 'Adicionar produto')}
             </h2>
             <p className="mt-1 text-sm text-gray-500">
-              Cole uma URL manualmente ou envie uma imagem para a Cloudinary e use a URL retornada automaticamente.
+              {description ?? 'Cole uma URL manualmente ou envie uma imagem para a Cloudinary e use a URL retornada automaticamente.'}
             </p>
           </div>
 
-          {editingId ? (
+          {editingId && !isSingleProductMode ? (
             <button
               type="button"
               onClick={resetForm}
@@ -360,18 +402,39 @@ export const ProductAdminPanel = ({
             </div>
           </div>
 
-          <button
-            type="submit"
-            disabled={isUploadingImage || isSavingProduct}
-            className="flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-emerald-300"
-          >
-            {isUploadingImage ? <LoaderCircle className="h-4 w-4 animate-spin" /> : editingId ? <Save className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-            {isUploadingImage ? 'Enviando imagem...' : isSavingProduct ? 'Salvando produto...' : editingId ? 'Salvar alteracoes' : 'Adicionar produto'}
-          </button>
+          <div className={`flex gap-3 ${isSingleProductMode ? 'flex-col sm:flex-row' : ''}`}>
+            <button
+              type="submit"
+              disabled={isUploadingImage || isSavingProduct}
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 disabled:cursor-not-allowed disabled:bg-emerald-300"
+            >
+              {isUploadingImage ? <LoaderCircle className="h-4 w-4 animate-spin" /> : editingId ? <Save className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+              {isUploadingImage ? 'Enviando imagem...' : isSavingProduct ? 'Salvando produto...' : editingId ? 'Salvar alteracoes' : 'Adicionar produto'}
+            </button>
+
+            {isSingleProductMode && product ? (
+              <button
+                type="button"
+                onClick={async () => {
+                  const deleted = await onDeleteProduct(product.id);
+
+                  if (deleted) {
+                    onDone?.({ deleted: true });
+                  }
+                }}
+                disabled={isSavingProduct}
+                className="flex w-full items-center justify-center gap-2 rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700 transition hover:bg-red-100 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                <Trash2 className="h-4 w-4" />
+                Remover produto
+              </button>
+            ) : null}
+          </div>
         </form>
       </div>
 
-      <div className="space-y-3">
+      {!isSingleProductMode ? (
+        <div className="space-y-3">
         <div className="flex items-center justify-between">
           <h3 className="text-lg font-semibold text-gray-900">Produtos cadastrados</h3>
           <span className="text-sm text-gray-500">{products.length} itens</span>
@@ -418,7 +481,8 @@ export const ProductAdminPanel = ({
             </div>
           </div>
         ))}
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 };

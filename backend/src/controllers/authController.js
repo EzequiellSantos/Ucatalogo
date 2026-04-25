@@ -17,7 +17,7 @@ const loginWithGoogle = async (req, res, next) => {
     const user = await verifyGoogleCredential(credential);
 
     if (!isAllowedAdminEmail(user.email)) {
-      return res.status(403).json({ message: 'This email is not allowed to access the admin area.' });
+      return res.status(403).json({ message: 'Acesso negado. Este email não tem permissão para acessar a área de administração. ATUALIZE a página.' });
     }
 
     return res.status(200).json({ user });

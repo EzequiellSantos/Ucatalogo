@@ -13,7 +13,7 @@ export const catalogData = {
         description: 'Maior loja de móveis e eletrodomésticos de Santana do Acaraú. Oferecemos uma ampla variedade de produtos para mobiliar e equipar sua casa com qualidade e estilo.',
         email: 'gabrielescritorio203@gmail.com',
         phone: '(88) 99915-6930',
-        address: 'Chora, Satana do Acaraú, Ceará',
+        address: 'Chora, Santana do Acaraú, Ceará',
         hours: 'Seg-Sex: 8h-17h',
         socialMedia: {
             instagram: 'gabrieleletromoveis.oficial',

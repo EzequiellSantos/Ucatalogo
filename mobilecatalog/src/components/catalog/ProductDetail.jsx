@@ -1,9 +1,21 @@
 import { useState, useEffect } from "react";
 import { Drawer } from "vaul";
-import { X, MessageCircle } from "lucide-react";
+import { X, MessageCircle, Pencil } from "lucide-react";
+import { ProductAdminPanel } from "./ProductAdminPanel";
 
-export const ProductDetail = ({ product, open, onClose, whatsappNumber }) => {
+export const ProductDetail = ({
+  product,
+  open,
+  onClose,
+  whatsappNumber,
+  authenticatedUser,
+  categories,
+  onUpdateProduct,
+  onDeleteProduct,
+  isSavingProduct
+}) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [isEditingProduct, setIsEditingProduct] = useState(false);
 
   // Adicionar/remover a classe CSS ao body
   useEffect(() => {
@@ -27,6 +39,12 @@ export const ProductDetail = ({ product, open, onClose, whatsappNumber }) => {
       window.removeEventListener("keydown", handleEsc);
     };
   }, []);
+
+  useEffect(() => {
+    if (!open) {
+      setIsEditingProduct(false);
+    }
+  }, [open, product?.id]);
 
   if (!product) return null;
 
@@ -133,6 +151,60 @@ export const ProductDetail = ({ product, open, onClose, whatsappNumber }) => {
                     {product.description}
                   </p>
                 </div>
+
+                {authenticatedUser ? (
+                  <div className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-4 shadow-sm">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-600">
+                          Area administrativa
+                        </p>
+                        <h3 className="mt-1 text-base font-semibold text-slate-900">
+                          Edite este produto sem sair da visualizacao
+                        </h3>
+                        <p className="mt-1 text-sm text-slate-500">
+                          O card de edicao aparece no fluxo da tela e evita um painel fixo pesado no mobile.
+                        </p>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setIsEditingProduct((current) => !current)}
+                        className={`inline-flex items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium transition ${
+                          isEditingProduct
+                            ? "bg-slate-900 text-white hover:bg-slate-800"
+                            : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                        }`}
+                      >
+                        <Pencil className="h-4 w-4" />
+                        {isEditingProduct ? "Fechar edicao" : "Editar produto"}
+                      </button>
+                    </div>
+
+                    {isEditingProduct ? (
+                      <div className="mt-4">
+                        <ProductAdminPanel
+                          product={product}
+                          products={[]}
+                          categories={categories}
+                          onUpdateProduct={onUpdateProduct}
+                          onDeleteProduct={onDeleteProduct}
+                          isSavingProduct={isSavingProduct}
+                          mode="single"
+                          title="Editar produto"
+                          description="Atualize os dados deste item em um card compacto, pensado para encaixar bem na rolagem do celular."
+                          onDone={(result) => {
+                            setIsEditingProduct(false);
+
+                            if (result?.deleted) {
+                              onClose(false);
+                            }
+                          }}
+                        />
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
               </div>
             </div>
 

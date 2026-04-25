@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import { MapPin, Clock, Phone, Mail, MessageCircle, Instagram, LogOut, ShieldCheck } from 'lucide-react';
 import { toast } from 'sonner';
 import { GoogleLoginButton } from './GoogleLoginButton';
@@ -13,15 +13,11 @@ export const ProfileView = ({
   onAddProduct,
   onUpdateProduct,
   onDeleteProduct,
-  isSavingProduct = false
+  isSavingProduct = false,
+  authenticatedUser,
+  setAuthenticatedUser
 }) => {
   const authStorageKey = useMemo(() => getAuthStorageKey(companyId), [companyId]);
-  const [authenticatedUser, setAuthenticatedUser] = useState(null);
-
-  useEffect(() => {
-    const savedUser = window.localStorage.getItem(authStorageKey);
-    setAuthenticatedUser(savedUser ? JSON.parse(savedUser) : null);
-  }, [authStorageKey]);
 
   const handleLoginSuccess = useCallback((user) => {
     window.localStorage.setItem(authStorageKey, JSON.stringify(user));

@@ -18,6 +18,8 @@ import {
 import { Printer } from 'lucide-react';
 import { toast } from 'sonner';
 
+const getAuthStorageKey = (companyId) => `ucatalogo-google-auth:${companyId}`;
+
 export const CatalogPage = () => {
   const { companyId } = useParams();
   const navigate = useNavigate();
@@ -31,6 +33,7 @@ export const CatalogPage = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
   const [isSavingProduct, setIsSavingProduct] = useState(false);
+  const [authenticatedUser, setAuthenticatedUser] = useState(null);
 
   useEffect(() => {
     const loadCatalog = async () => {
@@ -65,6 +68,27 @@ export const CatalogPage = () => {
       loadCatalog();
     }
   }, [companyId, navigate]);
+
+  useEffect(() => {
+    if (!companyId) {
+      setAuthenticatedUser(null);
+      return undefined;
+    }
+
+    const authStorageKey = getAuthStorageKey(companyId);
+
+    const syncAuthenticatedUser = () => {
+      const savedUser = window.localStorage.getItem(authStorageKey);
+      setAuthenticatedUser(savedUser ? JSON.parse(savedUser) : null);
+    };
+
+    syncAuthenticatedUser();
+    window.addEventListener('storage', syncAuthenticatedUser);
+
+    return () => {
+      window.removeEventListener('storage', syncAuthenticatedUser);
+    };
+  }, [companyId]);
 
   const filteredProducts = useMemo(() => {
     if (!catalogData) return [];
@@ -211,13 +235,15 @@ export const CatalogPage = () => {
             <span className="text-xs font-medium uppercase tracking-widest text-gray-500">
               {filteredProducts.length} Produtos
             </span>
-            <button
-              onClick={() => window.print()}
-              className="no-print flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors hover:bg-slate-800"
-            >
-              <Printer className="h-3.5 w-3.5" />
-              Imprimir Catalogo
-            </button>
+            {authenticatedUser ? (
+              <button
+                onClick={() => window.print()}
+                className="no-print flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-colors hover:bg-slate-800"
+              >
+                <Printer className="h-3.5 w-3.5" />
+                Imprimir Catalogo
+              </button>
+            ) : null}
           </div>
 
           <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
@@ -257,6 +283,8 @@ export const CatalogPage = () => {
           onUpdateProduct={handleUpdateProduct}
           onDeleteProduct={handleDeleteProduct}
           isSavingProduct={isSavingProduct}
+          authenticatedUser={authenticatedUser}
+          setAuthenticatedUser={setAuthenticatedUser}
         />
       )}
 
@@ -265,6 +293,11 @@ export const CatalogPage = () => {
         open={isDrawerOpen}
         onClose={setIsDrawerOpen}
         whatsappNumber={catalogData.whatsappNumber}
+        authenticatedUser={authenticatedUser}
+        categories={categoryNames}
+        onUpdateProduct={handleUpdateProduct}
+        onDeleteProduct={handleDeleteProduct}
+        isSavingProduct={isSavingProduct}
       />
     </CatalogLayout>
   );
