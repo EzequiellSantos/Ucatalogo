@@ -18,7 +18,7 @@ const verifyGoogleCredential = async (credential) => {
   const googleClientId = String(process.env.GOOGLE_CLIENT_ID || '').trim();
 
   if (!googleClientId) {
-    throw new Error('GOOGLE_CLIENT_ID is not configured.');
+    throw new Error('Erro de configuração: GOOGLE_CLIENT_ID não está definido.');
   }
 
   const tokenInfoUrl = `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(credential)}`;
@@ -26,15 +26,15 @@ const verifyGoogleCredential = async (credential) => {
   const data = await response.json();
 
   if (!response.ok) {
-    throw new Error(data.error_description || data.error || 'Failed to validate Google credential.');
+    throw new Error(data.error_description || data.error || 'Validação da credencial do Google falhou.');
   }
 
   if (data.aud !== googleClientId) {
-    throw new Error('Google credential does not belong to this application.');
+    throw new Error('Credencial do Google inválida: o client ID não corresponde.');
   }
 
   if (data.email_verified !== 'true') {
-    throw new Error('Google account email is not verified.');
+    throw new Error('Esta Conta do Google não foi Autorizada. Por favor, verifique sua conta e tente novamente e ATUALIZE a página.');
   }
 
   return {

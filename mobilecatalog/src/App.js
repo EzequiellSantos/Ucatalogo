@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import { CatalogPage } from "./pages/CatalogPage";
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { Analytics } from "@vercel/analytics/react"
 
 const Home = () => {
   return (
@@ -24,6 +25,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
