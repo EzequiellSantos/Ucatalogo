@@ -137,8 +137,17 @@ export const HomeView = ({ catalogData, setActiveTab, setSearchQuery, isProducts
             <div className="text-2xl mb-1">📞</div>
             <p className="text-sm font-medium">Ligar</p>
           </a>
+
         </div>
+
       </div>
+
+      <div className="w-full pt-2 pb-6 text-center mt-40">
+          <p className="text-xs sm:text-sm text-slate-400">
+              Desenvolvido por <a href='https://wa.me/558899785493?text=Quero+saber+mais+sobre+o+uCatalogo' target='_blank' className="font-medium text-slate-500 underline">Ezequiel Santos</a>
+          </p>
+      </div>
+
     </div>
   );
 };

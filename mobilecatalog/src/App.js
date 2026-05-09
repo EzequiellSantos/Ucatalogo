@@ -2,16 +2,9 @@ import "./App.css";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import { CatalogPage } from "./pages/CatalogPage";
+import { LandingPage } from "./pages/LandingPage";
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Analytics } from "@vercel/analytics/react"
-
-const Home = () => {
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <p className="text-gray-500">Digite o nome da empresa na URL (ex: /nike)</p>
-    </div>
-  );
-};
 
 function App() {
   return (
@@ -19,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Toaster richColors position="top-center" />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/:companyId" element={<CatalogPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
