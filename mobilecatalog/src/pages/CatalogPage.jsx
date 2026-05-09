@@ -203,6 +203,7 @@ export const CatalogPage = () => {
 
   const handleCategorySelect = (categoryId) => {
     setSelectedCategory(categoryId);
+    setSearchQuery('');
     handleDrawerChange(false);
     setActiveTab('products');
   };
@@ -278,7 +279,7 @@ export const CatalogPage = () => {
           <CategoryFilter
             categories={categoryNames}
             selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
+            setSelectedCategory={handleCategorySelect}
           />
 
           {!isProductsLoading && filteredProducts.length === 0 ? (
