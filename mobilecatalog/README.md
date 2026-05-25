@@ -195,32 +195,8 @@ image: "https://res.cloudinary.com/seu-cloud-name/image/upload/v1/produtos/produ
 - Mobile: `max-w-md` (448px) com sombra 2xl
 - Desktop: `max-w-5xl` (1024px) com bordas laterais
 
-## 🚀 Próximos Passos
-
-### Recursos Sugeridos
-
-1. **Autenticação**: Painel admin para empresas gerenciarem catálogos
-2. **Analytics**: Dashboard com visualizações e cliques
-3. **Favoritos**: Sistema de wishlist para usuários
-4. **Compartilhamento**: Share social de produtos
-5. **Multi-idioma**: Suporte i18n
-6. **Modo Escuro**: Toggle dark/light mode
-7. **Carrinho**: Sistema de carrinho multi-produto
-8. **Pagamentos**: Integração com Stripe/Mercado Pago
-
-### Otimizações
-
-- [ ] Lazy loading de imagens
-- [ ] Service Worker para PWA
-- [ ] SEO metadata dinâmica
-- [ ] Sitemap automático
-- [ ] Compressão de imagens via Cloudinary
-
-## 📄 Licença
-
-Template livre para uso comercial e pessoal.
 
 ---
 
-**Desenvolvido com ❤️ usando React + Tailwind CSS**
+**Desenvolvido usando React + Tailwind CSS**
 "
