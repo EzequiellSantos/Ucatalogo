@@ -70,5 +70,5 @@ Clique em qualquer produto para abrir o drawer com informações completas.
 Clique no botão verde \"Pedir pelo WhatsApp\" para abrir uma conversa pré-formatada.
 
 
-**Desenvolvido usando React + Tailwind CSS**
+**Desenvolvido usando React + Tailwind CSS **
 "
